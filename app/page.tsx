@@ -352,19 +352,30 @@ export default function Home() {
                 Choose a time that works for you. I’ll review your business before our call so we can make it productive.
               </p>
 
-              <div className="bg-neutral-100 border-2 border-neutral-300 p-12 aspect-video flex items-center justify-center">
-                <div className="text-center">
-                  <Calendar className="w-16 h-16 mx-auto mb-4 text-neutral-400" />
-                  <p className="text-neutral-600 font-medium">Google Calendar Appointment Scheduler</p>
-                  <p className="text-sm text-neutral-500 mt-2">Replace with your Google Calendar embed code</p>
-                </div>
+              {/* GOOGLE CALENDAR INLINE EMBED */}
+              <div className="bg-white border-2 border-neutral-300">
+                <iframe
+                  src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1fXnsNiypWIUeTE3Mgtm6PPUYxWCtW_E3NiN8wQv0kAiCSaU7zGJUTfhePcfJMdFuqbZKwGNKE?gv=true"
+                  style={{ border: 0 }}
+                  width="100%"
+                  height="700"
+                  frameBorder="0"
+                  loading="lazy"
+                />
               </div>
 
-              <p className="text-sm text-neutral-500 mt-6">
-                Prefer to email?{' '}
-                <a href="/contact" className="text-charcoal-900 font-semibold hover:underline">
-                  Send me your details
+              {/* TEXT + EMAIL OPTIONS */}
+              <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a href="sms:7327349618" className="btn-secondary">
+                  Prefer to Text? (732) 734-9618
                 </a>
+                <a href="/contact" className="btn-primary">
+                  Email / Contact Form
+                </a>
+              </div>
+
+              <p className="text-sm text-neutral-500 mt-4">
+                If texting doesn’t open automatically, you can copy the number: <span className="font-semibold">(732) 734-9618</span>
               </p>
             </div>
           </div>

@@ -1,11 +1,19 @@
+// contact/page.tsx
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import { Calendar, Mail } from 'lucide-react'
+import { Calendar, Mail, MessageSquare, MapPin, Clock } from 'lucide-react'
 
 export const metadata = {
   title: 'Contact | Clearforge Labs',
   description: 'Get in touch to discuss your project. Free 15-minute strategy call available.',
 }
+
+// ✅ Formspree endpoint (LIVE)
+const FORM_ACTION = 'https://formspree.io/f/mojndezo'
+
+// ✅ Google Calendar booking iframe URL
+const BOOKING_IFRAME_SRC =
+  'https://calendar.google.com/calendar/appointments/schedules/AcZssZ1fXnsNiypWIUeTE3Mgtm6PPUYxWCtW_E3NiN8wQv0kAiCSaU7zGJUTfhePcfJMdFuqbZKwGNKE?gv=true'
 
 export default function ContactPage() {
   return (
@@ -16,10 +24,30 @@ export default function ContactPage() {
         <section className="section-padding bg-neutral-50">
           <div className="container-custom">
             <div className="max-w-3xl mx-auto text-center">
-              <h1 className="heading-xl mb-6">Let's Talk About Your Project</h1>
+              <h1 className="heading-xl mb-6">Let&apos;s Talk About Your Project</h1>
               <p className="text-xl text-neutral-600">
-                Tell me about your business and what you're trying to improve.
-                <br />I'll review everything before our call so we can make it productive.
+                Tell me about your business and what you&apos;re trying to improve.
+                <br />
+                I&apos;ll review everything before our call so we can make it productive.
+              </p>
+
+              {/* Quick actions */}
+              <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
+                <a href="sms:7327349618" className="btn-primary inline-flex items-center justify-center gap-2">
+                  <MessageSquare className="w-5 h-5" />
+                  Text me (preferred)
+                </a>
+                <a
+                  href="mailto:hello@clearforgelabs.com"
+                  className="btn-secondary inline-flex items-center justify-center gap-2"
+                >
+                  <Mail className="w-5 h-5" />
+                  Email
+                </a>
+              </div>
+
+              <p className="text-sm text-neutral-500 mt-4">
+                Prefer texting? Number: <span className="font-semibold">(732) 734-9618</span>
               </p>
             </div>
           </div>
@@ -35,25 +63,39 @@ export default function ContactPage() {
                   <Calendar className="w-8 h-8 text-charcoal-900" />
                   <h2 className="text-2xl font-bold">Book a Strategy Call</h2>
                 </div>
-                <p className="text-neutral-600 mb-8">
-                  Prefer to talk directly? Book a free 15-minute call. We'll discuss your needs and see if we're a good fit.
+                <p className="text-neutral-600 mb-6">
+                  Prefer to talk directly? Book a free 15-minute call. We&apos;ll discuss your needs and see if we&apos;re a good fit.
                 </p>
-                
-                {/* Google Calendar Embed Placeholder */}
-                <div className="bg-neutral-100 border-2 border-neutral-300 p-8 aspect-square flex items-center justify-center">
-                  <div className="text-center">
-                    <Calendar className="w-16 h-16 mx-auto mb-4 text-neutral-400" />
-                    <p className="text-neutral-600 font-medium mb-2">Google Calendar Appointment Scheduler</p>
-                    <p className="text-sm text-neutral-500">
-                      Replace this with your Google Calendar embed code or Calendly widget
-                    </p>
-                    <div className="mt-6">
-                      <code className="text-xs bg-neutral-200 px-3 py-1 rounded">
-                        &lt;iframe src="your-calendar-url"&gt;&lt;/iframe&gt;
-                      </code>
-                    </div>
-                  </div>
+
+                {/* Google Calendar Inline Embed */}
+                <div className="bg-white border-2 border-neutral-300">
+                  <iframe
+                    src={BOOKING_IFRAME_SRC}
+                    style={{ border: 0 }}
+                    width="100%"
+                    height="700"
+                    frameBorder="0"
+                    loading="lazy"
+                  />
                 </div>
+
+                <div className="mt-4 flex flex-col sm:flex-row gap-3">
+                  <a href="sms:7327349618" className="btn-secondary inline-flex items-center justify-center gap-2">
+                    <MessageSquare className="w-5 h-5" />
+                    Text instead
+                  </a>
+                  <a
+                    href="mailto:hello@clearforgelabs.com"
+                    className="btn-secondary inline-flex items-center justify-center gap-2"
+                  >
+                    <Mail className="w-5 h-5" />
+                    Email instead
+                  </a>
+                </div>
+
+                <p className="text-xs text-neutral-500 mt-3">
+                  If the calendar doesn&apos;t load (rare), just text me and I&apos;ll send times.
+                </p>
               </div>
 
               {/* Contact Form */}
@@ -63,11 +105,18 @@ export default function ContactPage() {
                   <h2 className="text-2xl font-bold">Send Your Details</h2>
                 </div>
                 <p className="text-neutral-600 mb-8">
-                  Not ready for a call? Fill out the form below and I'll reach out within 24 hours.
+                  Not ready for a call? Fill this out and I&apos;ll reach out within 24 hours.
                 </p>
 
-                {/* Native Form (can be replaced with Tally embed) */}
-                <form className="space-y-6">
+                {/* ✅ Working form via Formspree */}
+                <form className="space-y-6" action={FORM_ACTION} method="POST">
+                  {/* Helps Formspree email subject */}
+                  <input type="hidden" name="_subject" value="New Lead — Clearforge Labs" />
+                  {/* Optional: redirect after submit (create /thanks page if you want) */}
+                  {/* <input type="hidden" name="_redirect" value="https://clearforgelabs.com/thanks" /> */}
+                  {/* Basic anti-spam honeypot (bots fill this, humans won't) */}
+                  <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
+
                   <div>
                     <label htmlFor="name" className="block text-sm font-semibold mb-2">
                       Name *
@@ -80,6 +129,35 @@ export default function ContactPage() {
                       className="w-full px-4 py-3 border-2 border-neutral-300 focus:border-charcoal-900 outline-none transition-colors"
                       placeholder="Your name"
                     />
+                  </div>
+
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-semibold mb-2">
+                        Email *
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        className="w-full px-4 py-3 border-2 border-neutral-300 focus:border-charcoal-900 outline-none transition-colors"
+                        placeholder="you@company.com"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="phone" className="block text-sm font-semibold mb-2">
+                        Phone (optional)
+                      </label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        className="w-full px-4 py-3 border-2 border-neutral-300 focus:border-charcoal-900 outline-none transition-colors"
+                        placeholder="(optional)"
+                      />
+                    </div>
                   </div>
 
                   <div>
@@ -194,26 +272,24 @@ export default function ContactPage() {
                     />
                   </div>
 
-                  <button
-                    type="submit"
-                    className="btn-primary w-full"
-                  >
+                  <button type="submit" className="btn-primary w-full">
                     Send Message
                   </button>
 
                   <p className="text-sm text-neutral-500 text-center">
-                    I'll respond within 24 hours during business days
+                    I&apos;ll respond within 24 hours during business days.
                   </p>
                 </form>
 
-                {/* Alternative: Tally Embed */}
-                <div className="mt-8 p-4 bg-neutral-50 border-2 border-neutral-300">
-                  <p className="text-sm text-neutral-600 mb-2">
-                    <strong>Alternative:</strong> Replace the form above with a Tally.so embed for free form handling:
+                {/* Optional fallback */}
+                <div className="mt-6 text-center">
+                  <p className="text-xs text-neutral-500">
+                    If the form ever bugs out, just{' '}
+                    <a href="sms:7327349618" className="text-charcoal-900 font-semibold hover:underline">
+                      text me
+                    </a>{' '}
+                    and I’ll reply fast.
                   </p>
-                  <code className="text-xs bg-white px-2 py-1 rounded block overflow-x-auto">
-                    &lt;iframe src="https://tally.so/r/your-form-id" width="100%" height="600"&gt;&lt;/iframe&gt;
-                  </code>
                 </div>
               </div>
             </div>
@@ -225,6 +301,7 @@ export default function ContactPage() {
           <div className="container-custom">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-2xl font-bold mb-6">Other Ways to Reach Me</h2>
+
               <div className="space-y-4">
                 <p className="text-neutral-700">
                   <strong>Email:</strong>{' '}
@@ -232,11 +309,26 @@ export default function ContactPage() {
                     hello@clearforgelabs.com
                   </a>
                 </p>
+
                 <p className="text-neutral-700">
-                  <strong>Location:</strong> Edison, NJ (serving clients nationwide)
+                  <strong>Text:</strong>{' '}
+                  <a href="sms:7327349618" className="text-charcoal-900 hover:underline font-medium">
+                    (732) 734-9618
+                  </a>
                 </p>
-                <p className="text-neutral-700">
-                  <strong>Response Time:</strong> Within 24 hours on business days
+
+                <p className="text-neutral-700 flex items-center justify-center gap-2">
+                  <MapPin className="w-5 h-5" />
+                  <span>
+                    <strong>Location:</strong> Edison, NJ (serving clients nationwide)
+                  </span>
+                </p>
+
+                <p className="text-neutral-700 flex items-center justify-center gap-2">
+                  <Clock className="w-5 h-5" />
+                  <span>
+                    <strong>Response Time:</strong> Within 24 hours on business days
+                  </span>
                 </p>
               </div>
             </div>
