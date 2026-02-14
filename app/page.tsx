@@ -4,15 +4,15 @@ import Footer from '@/components/Footer'
 import PricingCard from '@/components/PricingCard'
 import CaseStudyCard from '@/components/CaseStudyCard'
 import CTASection from '@/components/CTASection'
-import { CheckCircle2, Zap, CreditCard, Calendar, ArrowRight, Shield, Clock, Wrench, LayoutGrid } from 'lucide-react'
+import { CheckCircle2, Calendar, ArrowRight, Shield, Clock, Wrench } from 'lucide-react'
 
 export default function Home() {
   return (
     <>
       <Header />
       <main>
-        {/* Hero Section */}
-        <section className="pt-32 pb-20 md:pt-40 md:pb-32 bg-gradient-to-b from-neutral-50 to-white">
+        {/* HERO */}
+        <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-b from-neutral-50 to-white">
           <div className="container-custom">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
               {/* Left */}
@@ -25,7 +25,6 @@ export default function Home() {
                   bookings, and fewer no-shows.
                 </p>
 
-                {/* Trust Bullets */}
                 <div className="space-y-3 mb-8">
                   <div className="flex items-center gap-3">
                     <CheckCircle2 className="w-6 h-6 text-charcoal-900" />
@@ -37,24 +36,21 @@ export default function Home() {
                   </div>
                   <div className="flex items-center gap-3">
                     <CheckCircle2 className="w-6 h-6 text-charcoal-900" />
-                    <span className="font-medium">Booking + payments + automation included</span>
+                    <span className="font-medium">Deposits + payments included</span>
                   </div>
                 </div>
 
-                {/* CTAs */}
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a href="#book-call" className="btn-primary">
                     Book Free Strategy Call
                   </a>
-                  <a href="/work" className="btn-secondary">
-                    See Real Work
+                  <a href="#pricing" className="btn-secondary">
+                    View Pricing
                   </a>
                 </div>
 
-                {/* Risk Reversal */}
                 <p className="text-sm text-neutral-500 mt-4">No pressure — if it’s not a fit, I’ll tell you on the call.</p>
 
-                {/* Built for row */}
                 <p className="text-xs uppercase tracking-wide text-neutral-500 mt-6">
                   Built for: <span className="text-charcoal-900 font-semibold">Urmi Threading</span> •{' '}
                   <span className="text-charcoal-900 font-semibold">WSD Referral System</span> •{' '}
@@ -65,7 +61,6 @@ export default function Home() {
               {/* Right - Founder Proof Card */}
               <div className="animate-slide-in-right">
                 <div className="bg-neutral-100 aspect-square rounded-none p-8 flex flex-col items-center justify-center text-center border-2 border-charcoal-900">
-                  {/* Headshot */}
                   <div className="w-32 h-32 rounded-full mb-6 overflow-hidden border-2 border-charcoal-900 bg-white">
                     <img
                       src="/headshot.jpg"
@@ -88,156 +83,118 @@ export default function Home() {
                     </div>
                     <div className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 mt-0.5 text-charcoal-900 flex-shrink-0" />
-                      <span className="text-sm text-neutral-700">Automations to capture leads 24/7</span>
+                      <span className="text-sm text-neutral-700">You work with me (no layers)</span>
                     </div>
                   </div>
 
-                  {/* Proof statement */}
                   <div className="mt-6 w-full max-w-xs border-t border-neutral-300 pt-5">
-                    <p className="text-sm text-neutral-700">You work directly with me — no outsourcing, no layers.</p>
-                    <p className="text-xs text-neutral-500 mt-2">3 builds at a time to keep delivery fast.</p>
+                    <p className="text-sm text-neutral-700">Limited slots so delivery stays fast.</p>
+                    <p className="text-xs text-neutral-500 mt-2">3 builds at a time.</p>
                   </div>
                 </div>
               </div>
             </div>
+
+            {/* (REMOVED) extra mini-cards under hero */}
           </div>
         </section>
 
-        {/* Social Proof Strip */}
-        <section className="py-12 bg-charcoal-900 text-white">
+        {/* SOCIAL PROOF STRIP */}
+        <section className="py-10 bg-charcoal-900 text-white">
           <div className="container-custom">
-            <p className="text-center text-sm uppercase tracking-wide text-neutral-400 mb-8">
+            <p className="text-center text-sm uppercase tracking-wide text-neutral-400 mb-6">
               Built for real businesses & paid communities
             </p>
 
-            <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-              <div className="text-center p-6 border border-neutral-700">
-                <h3 className="font-bold mb-2">Urmi Threading Salon</h3>
+            <div className="grid md:grid-cols-3 gap-5 max-w-4xl mx-auto">
+              <div className="text-center p-5 border border-neutral-700">
+                <h3 className="font-bold mb-1">Urmi Threading Salon</h3>
                 <p className="text-neutral-400 text-sm">Modern website refresh</p>
               </div>
-              <div className="text-center p-6 border border-neutral-700">
-                <h3 className="font-bold mb-2">WSD Referral Bot</h3>
+              <div className="text-center p-5 border border-neutral-700">
+                <h3 className="font-bold mb-1">WSD Referral Bot</h3>
                 <p className="text-neutral-400 text-sm">Automated referrals & tracking</p>
               </div>
-              <div className="text-center p-6 border border-neutral-700">
-                <h3 className="font-bold mb-2">Stripe Integrations</h3>
+              <div className="text-center p-5 border border-neutral-700">
+                <h3 className="font-bold mb-1">Stripe Integrations</h3>
                 <p className="text-neutral-400 text-sm">Deposits + payment flows</p>
               </div>
             </div>
           </div>
         </section>
 
+        {/* SHORT ABOUT TEASER (since you have a full About page) */}
+        <section className="section-padding bg-white">
+          <div className="container-custom">
+            <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-start">
+              <div>
+                <p className="text-xs uppercase tracking-wide text-neutral-500 mb-3">
+                  Founder-led • NJ-based • Working nationwide
+                </p>
 
-          {/* ABOUT / CREDIBILITY (ADD THIS) */}
-          <section id="about" className="section-padding bg-white">
-            <div className="container-custom">
-              <div className="max-w-5xl mx-auto">
-                <div className="grid md:grid-cols-2 gap-10 items-start">
-                  {/* Left */}
-                  <div>
-                    <p className="text-xs uppercase tracking-wide text-neutral-500 mb-3">
-                      Founder-led • NJ-based • Working nationwide
-                    </p>
+                <h2 className="heading-md mb-4">
+                  You’re not hiring an agency.
+                  <br />
+                  You’re working with the builder.
+                </h2>
 
-                    <h2 className="heading-md mb-4">
-                      You’re not hiring an agency.
-                      <br />
-                      You’re working with the builder.
-                    </h2>
+                <p className="text-neutral-700 text-lg mb-6">
+                  I build fast, modern websites that convert visits into booked appointments and paid deposits — without the
+                  agency fluff.
+                </p>
 
-                    <p className="text-neutral-700 text-lg mb-6">
-                      I’m Aavash — CS student + developer who builds{" "}
-                      <span className="font-semibold text-charcoal-900">
-                        fast, modern websites that turn visits into booked appointments + paid deposits
-                      </span>
-                      .
-                    </p>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a href="/about" className="btn-secondary inline-flex items-center justify-center">
+                    About Me
+                  </a>
+                  <a href="/work" className="btn-primary inline-flex items-center justify-center">
+                    Clearforge Labs
+                    <ArrowRight className="w-5 h-5 ml-2" />
+                  </a>
+                </div>
+              </div>
 
-                    <div className="space-y-3 text-neutral-700">
-                      <div className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 mt-0.5 text-charcoal-900 flex-shrink-0" />
-                        <p>
-                          <span className="font-semibold">Software Engineering Intern @ Verizon</span> — worked on payment workflows,
-                          validation, and reliability improvements.
-                        </p>
-                      </div>
+              <div className="border-2 border-charcoal-900 bg-neutral-50 p-8">
+                <h3 className="text-xl font-display font-bold mb-5">What this means for you</h3>
 
-                      <div className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 mt-0.5 text-charcoal-900 flex-shrink-0" />
-                        <p>
-                          <span className="font-semibold">Founder / Lead Developer @ Portlock Labs</span> — shipped full-stack builds,
-                          analytics, and automations to drive growth.
-                        </p>
-                      </div>
-
-                      <div className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 mt-0.5 text-charcoal-900 flex-shrink-0" />
-                        <p>
-                          Built and deployed real business sites (ex: <span className="font-semibold">Urmi Threading Salon</span>) with
-                          SEO + domain + hosting setup.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="mt-7 flex flex-col sm:flex-row gap-4">
-                      <a href="#pricing" className="btn-primary inline-flex items-center justify-center">
-                        View Pricing
-                        <ArrowRight className="w-5 h-5 ml-2" />
-                      </a>
-                      <a href="#book-call" className="btn-secondary inline-flex items-center justify-center">
-                        Book a Call
-                      </a>
-                    </div>
-
-                    <p className="text-xs text-neutral-500 mt-4">
-                      I keep projects limited so delivery stays fast + communication stays clean.
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <Clock className="w-5 h-5 mt-0.5 text-charcoal-900 flex-shrink-0" />
+                    <p className="text-neutral-700">
+                      <span className="font-semibold">Fast turnaround:</span> most builds ship in 5–10 days.
                     </p>
                   </div>
 
-                  {/* Right */}
-                  <div className="border-2 border-charcoal-900 bg-neutral-50 p-8">
-                    <h3 className="text-xl font-display font-bold mb-5">What this means for you</h3>
-
-                    <div className="space-y-4">
-                      <div className="flex items-start gap-3">
-                        <Clock className="w-5 h-5 mt-0.5 text-charcoal-900 flex-shrink-0" />
-                        <p className="text-neutral-700">
-                          <span className="font-semibold">Fast turnaround:</span> 5–10 days for most builds.
-                        </p>
-                      </div>
-
-                      <div className="flex items-start gap-3">
-                        <Shield className="w-5 h-5 mt-0.5 text-charcoal-900 flex-shrink-0" />
-                        <p className="text-neutral-700">
-                          <span className="font-semibold">No fluff:</span> site + booking + Stripe deposit flow built to reduce no-shows.
-                        </p>
-                      </div>
-
-                      <div className="flex items-start gap-3">
-                        <Wrench className="w-5 h-5 mt-0.5 text-charcoal-900 flex-shrink-0" />
-                        <p className="text-neutral-700">
-                          <span className="font-semibold">Founder-led support:</span> you’re talking to the person actually shipping it.
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="mt-6 border-t border-neutral-300 pt-6">
-                      <p className="text-sm text-neutral-700">
-                        If you want, I’ll show real screenshots + flows on the call so you can see exactly what you’re buying.
-                      </p>
-                      <a href="#book-call" className="inline-flex items-center gap-2 font-semibold text-charcoal-900 hover:gap-4 transition-all duration-300 mt-3">
-                        Book the free call
-                        <ArrowRight className="w-5 h-5" />
-                      </a>
-                    </div>
+                  <div className="flex items-start gap-3">
+                    <Shield className="w-5 h-5 mt-0.5 text-charcoal-900 flex-shrink-0" />
+                    <p className="text-neutral-700">
+                      <span className="font-semibold">Deposit flow built-in:</span> Stripe links/checkout to reduce no-shows.
+                    </p>
                   </div>
+
+                  <div className="flex items-start gap-3">
+                    <Wrench className="w-5 h-5 mt-0.5 text-charcoal-900 flex-shrink-0" />
+                    <p className="text-neutral-700">
+                      <span className="font-semibold">Clean handoff:</span> you own the site + get post-launch support.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="mt-6 border-t border-neutral-300 pt-6">
+                  <a
+                    href="#book-call"
+                    className="inline-flex items-center gap-2 font-semibold text-charcoal-900 hover:gap-4 transition-all duration-300"
+                  >
+                    Book the free call
+                    <ArrowRight className="w-5 h-5" />
+                  </a>
                 </div>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-
-                {/* 3-STEP PROCESS STRIP */}
+        {/* HOW IT WORKS (moved here, like before) */}
         <section className="section-padding bg-white">
           <div className="container-custom">
             <div className="max-w-5xl mx-auto">
@@ -252,9 +209,7 @@ export default function Home() {
                     <Clock className="w-6 h-6 text-charcoal-900" />
                     <h3 className="font-bold text-lg">1) Quick Strategy Call</h3>
                   </div>
-                  <p className="text-neutral-600 text-sm">
-                    15 minutes. We choose the right package + clarify scope. If it’s not a fit, I’ll tell you.
-                  </p>
+                  <p className="text-neutral-600 text-sm">15 minutes. We pick the right package + lock scope.</p>
                 </div>
 
                 <div className="border-2 border-neutral-300 p-7 hover:border-charcoal-900 transition-all duration-300">
@@ -262,10 +217,7 @@ export default function Home() {
                     <Wrench className="w-6 h-6 text-charcoal-900" />
                     <h3 className="font-bold text-lg">2) Build (5–10 days)</h3>
                   </div>
-                  <p className="text-neutral-600 text-sm">
-                    You send content + any access needed. I build the site + booking + Stripe deposits (and automations if
-                    needed).
-                  </p>
+                  <p className="text-neutral-600 text-sm">You send content + access. I build and share drafts fast.</p>
                 </div>
 
                 <div className="border-2 border-neutral-300 p-7 hover:border-charcoal-900 transition-all duration-300">
@@ -273,9 +225,7 @@ export default function Home() {
                     <Shield className="w-6 h-6 text-charcoal-900" />
                     <h3 className="font-bold text-lg">3) Launch + Support</h3>
                   </div>
-                  <p className="text-neutral-600 text-sm">
-                    We go live fast. You get support after launch + clean handoff. You own the site.
-                  </p>
+                  <p className="text-neutral-600 text-sm">We go live. Clean handoff + post-launch support.</p>
                 </div>
               </div>
 
@@ -289,24 +239,18 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Pricing Section (MOVED UP) */}
+        {/* PRICING */}
         <section id="pricing" className="section-padding bg-neutral-50 scroll-mt-28">
           <div className="container-custom">
-            <div className="text-center mb-16">
+            <div className="text-center mb-12">
               <h2 className="heading-lg mb-4">Founders Pricing</h2>
-
               <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
                 Intro pricing for the next 10 client systems. Same build quality — reduced rate while I build my 2026
                 portfolio.
               </p>
-
-              <p className="text-sm text-neutral-500 mt-4">
-                All packages include 5–10 day delivery. 50% upfront, 50% after delivery.
-              </p>
-
+              <p className="text-sm text-neutral-500 mt-4">5–10 day delivery. 50% upfront, 50% after delivery.</p>
               <p className="text-sm font-semibold text-charcoal-900 mt-3">
-                Most clients choose <span className="underline">Site + Payments</span> to start collecting deposits
-                immediately.
+                Most clients choose <span className="underline">Site + Payments</span>.
               </p>
             </div>
 
@@ -360,52 +304,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Problem Section */}
-        <section className="section-padding bg-white">
-          <div className="container-custom">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="heading-lg text-center mb-12">Most small businesses lose money because…</h2>
-              <div className="space-y-6">
-                <div className="flex gap-4 p-6 border-l-4 border-charcoal-900 bg-neutral-50">
-                  <div className="text-3xl">❌</div>
-                  <div>
-                    <h3 className="font-bold text-xl mb-2">Missed calls & slow replies = lost clients</h3>
-                    <p className="text-neutral-600">
-                      Every hour you wait to respond, you lose potential revenue to competitors.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-4 p-6 border-l-4 border-charcoal-900 bg-neutral-50">
-                  <div className="text-3xl">❌</div>
-                  <div>
-                    <h3 className="font-bold text-xl mb-2">Old websites don't convert on mobile</h3>
-                    <p className="text-neutral-600">
-                      80% of your visitors are on their phone. If your site isn't optimized, they're gone.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-4 p-6 border-l-4 border-charcoal-900 bg-neutral-50">
-                  <div className="text-3xl">❌</div>
-                  <div>
-                    <h3 className="font-bold text-xl mb-2">No deposit/payment flow = no-shows</h3>
-                    <p className="text-neutral-600">
-                      Without skin in the game, appointments get cancelled or forgotten.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-4 p-6 border-l-4 border-charcoal-900 bg-neutral-50">
-                  <div className="text-3xl">❌</div>
-                  <div>
-                    <h3 className="font-bold text-xl mb-2">Manual scheduling steals time</h3>
-                    <p className="text-neutral-600">Every minute spent on the phone is a minute not serving clients.</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Case Studies Teaser */}
+        {/* RECENT PROJECTS */}
         <section className="section-padding bg-white">
           <div className="container-custom">
             <h2 className="heading-lg text-center mb-12">Recent Projects</h2>
@@ -423,7 +322,8 @@ export default function Home() {
                 slug="wsd-bot"
               />
             </div>
-            <div className="text-center mt-12">
+
+            <div className="text-center mt-10">
               <a
                 href="/work"
                 className="inline-flex items-center gap-2 text-lg font-semibold hover:gap-4 transition-all duration-300"
@@ -435,109 +335,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* PROOF BLOCKS (REPLACES TESTIMONIALS) */}
-        <section className="section-padding bg-neutral-50">
-          <div className="container-custom">
-            <div className="max-w-5xl mx-auto">
-              <div className="text-center mb-10">
-                <h2 className="heading-md mb-3">What I Build</h2>
-                <p className="text-neutral-600">Real systems shipped — websites, payments, automation, and tracking.</p>
-              </div>
-
-              <div className="grid md:grid-cols-3 gap-6">
-                <div className="bg-white border-2 border-neutral-300 p-7 hover:border-charcoal-900 transition-all duration-300">
-                  <div className="flex items-center gap-3 mb-4">
-                    <LayoutGrid className="w-6 h-6 text-charcoal-900" />
-                    <h3 className="font-bold text-lg">Website + Mobile Refresh</h3>
-                  </div>
-                  <p className="text-neutral-700 mb-4">
-                    Built a clean, fast site that makes it easy for customers to book and contact.
-                  </p>
-                  <ul className="space-y-2 text-sm text-neutral-600">
-                    <li>• Modern layout + speed</li>
-                    <li>• Mobile-first UX</li>
-                    <li>• Lead capture + contact flow</li>
-                  </ul>
-                  <p className="mt-4 text-xs text-neutral-500">Example: Urmi Threading Salon</p>
-                </div>
-
-                <div className="bg-white border-2 border-neutral-300 p-7 hover:border-charcoal-900 transition-all duration-300">
-                  <div className="flex items-center gap-3 mb-4">
-                    <CreditCard className="w-6 h-6 text-charcoal-900" />
-                    <h3 className="font-bold text-lg">Stripe Deposits + Flows</h3>
-                  </div>
-                  <p className="text-neutral-700 mb-4">
-                    Set up deposits/payment links so businesses reduce no-shows and get paid faster.
-                  </p>
-                  <ul className="space-y-2 text-sm text-neutral-600">
-                    <li>• Deposit / pay links</li>
-                    <li>• Confirmation + tracking</li>
-                    <li>• Simple “pay → booked” flow</li>
-                  </ul>
-                  <p className="mt-4 text-xs text-neutral-500">Example: Stripe integrations</p>
-                </div>
-
-                <div className="bg-white border-2 border-neutral-300 p-7 hover:border-charcoal-900 transition-all duration-300">
-                  <div className="flex items-center gap-3 mb-4">
-                    <Zap className="w-6 h-6 text-charcoal-900" />
-                    <h3 className="font-bold text-lg">Automation + Tracking</h3>
-                  </div>
-                  <p className="text-neutral-700 mb-4">
-                    Automated referrals + tracking so admins don’t do manual work and members stay engaged.
-                  </p>
-                  <ul className="space-y-2 text-sm text-neutral-600">
-                    <li>• Auto referral tracking</li>
-                    <li>• Payment-aware workflows</li>
-                    <li>• Real-time dashboard logic</li>
-                  </ul>
-                  <p className="mt-4 text-xs text-neutral-500">Example: WSD Referral Bot</p>
-                </div>
-              </div>
-
-              <div className="text-center mt-10">
-                <p className="text-sm text-neutral-600">
-                  Want me to show screenshots on a call?{' '}
-                  <a href="#book-call" className="font-semibold text-charcoal-900 hover:underline">
-                    Book a free strategy call
-                  </a>
-                  .
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-
-
-        {/* Risk Reversal */}
-        <section className="section-padding bg-neutral-50">
-          <div className="container-custom">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="heading-lg mb-12">No Tech Stress</h2>
-              <div className="grid sm:grid-cols-2 gap-8">
-                <div className="p-6 bg-white border-2 border-neutral-300">
-                  <h3 className="font-bold text-xl mb-2">Free 15-minute strategy call</h3>
-                  <p className="text-neutral-600">Let's talk about your business and see if we're a fit.</p>
-                </div>
-                <div className="p-6 bg-white border-2 border-neutral-300">
-                  <h3 className="font-bold text-xl mb-2">Clear scope before any payment</h3>
-                  <p className="text-neutral-600">You'll know exactly what you're getting and when.</p>
-                </div>
-                <div className="p-6 bg-white border-2 border-neutral-300">
-                  <h3 className="font-bold text-xl mb-2">Clean delivery timeline</h3>
-                  <p className="text-neutral-600">5–10 days from deposit to launch. No surprises.</p>
-                </div>
-                <div className="p-6 bg-white border-2 border-neutral-300">
-                  <h3 className="font-bold text-xl mb-2">30 days post-launch support</h3>
-                  <p className="text-neutral-600">I'm here to help after your site goes live.</p>
-                </div>
-              </div>
-              <p className="text-lg font-medium mt-8">If it's not a fit, I'll tell you upfront.</p>
-            </div>
-          </div>
-        </section>
-
-        {/* Final CTA */}
+        {/* FINAL CTA */}
         <CTASection
           title="Ready to Modernize Your Business?"
           subtitle="Your website should work as hard as you do."
@@ -545,13 +343,13 @@ export default function Home() {
           secondaryCTA={{ text: "Or send your details and I'll reach out within 24 hours", href: '/contact' }}
         />
 
-        {/* Booking Section */}
+        {/* BOOKING */}
         <section id="book-call" className="section-padding bg-white">
           <div className="container-custom">
             <div className="max-w-2xl mx-auto text-center">
               <h2 className="heading-md mb-6">Book Your Free Strategy Call</h2>
               <p className="text-neutral-600 mb-8">
-                Choose a time that works for you. I'll review your business before our call so we can make it productive.
+                Choose a time that works for you. I’ll review your business before our call so we can make it productive.
               </p>
 
               <div className="bg-neutral-100 border-2 border-neutral-300 p-12 aspect-video flex items-center justify-center">
