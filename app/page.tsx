@@ -128,6 +128,115 @@ export default function Home() {
         </section>
 
 
+          {/* ABOUT / CREDIBILITY (ADD THIS) */}
+          <section id="about" className="section-padding bg-white">
+            <div className="container-custom">
+              <div className="max-w-5xl mx-auto">
+                <div className="grid md:grid-cols-2 gap-10 items-start">
+                  {/* Left */}
+                  <div>
+                    <p className="text-xs uppercase tracking-wide text-neutral-500 mb-3">
+                      Founder-led • NJ-based • Working nationwide
+                    </p>
+
+                    <h2 className="heading-md mb-4">
+                      You’re not hiring an agency.
+                      <br />
+                      You’re working with the builder.
+                    </h2>
+
+                    <p className="text-neutral-700 text-lg mb-6">
+                      I’m Aavash — CS student + developer who builds{" "}
+                      <span className="font-semibold text-charcoal-900">
+                        fast, modern websites that turn visits into booked appointments + paid deposits
+                      </span>
+                      .
+                    </p>
+
+                    <div className="space-y-3 text-neutral-700">
+                      <div className="flex items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 mt-0.5 text-charcoal-900 flex-shrink-0" />
+                        <p>
+                          <span className="font-semibold">Software Engineering Intern @ Verizon</span> — worked on payment workflows,
+                          validation, and reliability improvements.
+                        </p>
+                      </div>
+
+                      <div className="flex items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 mt-0.5 text-charcoal-900 flex-shrink-0" />
+                        <p>
+                          <span className="font-semibold">Founder / Lead Developer @ Portlock Labs</span> — shipped full-stack builds,
+                          analytics, and automations to drive growth.
+                        </p>
+                      </div>
+
+                      <div className="flex items-start gap-3">
+                        <CheckCircle2 className="w-5 h-5 mt-0.5 text-charcoal-900 flex-shrink-0" />
+                        <p>
+                          Built and deployed real business sites (ex: <span className="font-semibold">Urmi Threading Salon</span>) with
+                          SEO + domain + hosting setup.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="mt-7 flex flex-col sm:flex-row gap-4">
+                      <a href="#pricing" className="btn-primary inline-flex items-center justify-center">
+                        View Pricing
+                        <ArrowRight className="w-5 h-5 ml-2" />
+                      </a>
+                      <a href="#book-call" className="btn-secondary inline-flex items-center justify-center">
+                        Book a Call
+                      </a>
+                    </div>
+
+                    <p className="text-xs text-neutral-500 mt-4">
+                      I keep projects limited so delivery stays fast + communication stays clean.
+                    </p>
+                  </div>
+
+                  {/* Right */}
+                  <div className="border-2 border-charcoal-900 bg-neutral-50 p-8">
+                    <h3 className="text-xl font-display font-bold mb-5">What this means for you</h3>
+
+                    <div className="space-y-4">
+                      <div className="flex items-start gap-3">
+                        <Clock className="w-5 h-5 mt-0.5 text-charcoal-900 flex-shrink-0" />
+                        <p className="text-neutral-700">
+                          <span className="font-semibold">Fast turnaround:</span> 5–10 days for most builds.
+                        </p>
+                      </div>
+
+                      <div className="flex items-start gap-3">
+                        <Shield className="w-5 h-5 mt-0.5 text-charcoal-900 flex-shrink-0" />
+                        <p className="text-neutral-700">
+                          <span className="font-semibold">No fluff:</span> site + booking + Stripe deposit flow built to reduce no-shows.
+                        </p>
+                      </div>
+
+                      <div className="flex items-start gap-3">
+                        <Wrench className="w-5 h-5 mt-0.5 text-charcoal-900 flex-shrink-0" />
+                        <p className="text-neutral-700">
+                          <span className="font-semibold">Founder-led support:</span> you’re talking to the person actually shipping it.
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="mt-6 border-t border-neutral-300 pt-6">
+                      <p className="text-sm text-neutral-700">
+                        If you want, I’ll show real screenshots + flows on the call so you can see exactly what you’re buying.
+                      </p>
+                      <a href="#book-call" className="inline-flex items-center gap-2 font-semibold text-charcoal-900 hover:gap-4 transition-all duration-300 mt-3">
+                        Book the free call
+                        <ArrowRight className="w-5 h-5" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+
                 {/* 3-STEP PROCESS STRIP */}
         <section className="section-padding bg-white">
           <div className="container-custom">
