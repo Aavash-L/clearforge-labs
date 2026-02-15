@@ -4,34 +4,59 @@ import Footer from '@/components/Footer'
 import PricingCard from '@/components/PricingCard'
 import CaseStudyCard from '@/components/CaseStudyCard'
 import CTASection from '@/components/CTASection'
-import { CheckCircle2, Calendar, ArrowRight, Shield, Clock, Wrench } from 'lucide-react'
+import { CheckCircle2, ArrowRight, Shield, Clock, Wrench } from 'lucide-react'
+
+const SITE_URL = 'https://clearforgelabs.com'
 
 const LOCAL_BUSINESS_SCHEMA = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
+  '@type': 'ProfessionalService',
+  '@id': `${SITE_URL}/#business`,
   name: 'Clearforge Labs',
-  url: 'https://clearforgelabs.com',
+  url: SITE_URL,
   telephone: '+17327349618',
+  email: 'hello@clearforgelabs.com',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Edison',
     addressRegion: 'NJ',
     addressCountry: 'US',
   },
-  areaServed: ['New Jersey', 'United States'],
+  areaServed: [
+    { '@type': 'AdministrativeArea', name: 'New Jersey' },
+    { '@type': 'City', name: 'New York City' },
+    { '@type': 'AdministrativeArea', name: 'New York' },
+    { '@type': 'Country', name: 'United States' },
+  ],
   founder: {
     '@type': 'Person',
     name: 'Aavash Lamichhane',
   },
-  sameAs: [
-    'https://clearforgelabs.com',
-  ],
   serviceType: [
     'Website Development',
     'Booking Systems',
     'Stripe Payment Integration',
     'Stripe Deposits',
     'Business Automation',
+  ],
+  availableChannel: [
+    {
+      '@type': 'ServiceChannel',
+      servicePhone: {
+        '@type': 'ContactPoint',
+        telephone: '+17327349618',
+        contactType: 'customer service',
+      },
+    },
+    {
+      '@type': 'ServiceChannel',
+      serviceUrl: `${SITE_URL}/contact`,
+    },
+  ],
+  offers: [
+    { '@type': 'Offer', name: 'Starter Site' },
+    { '@type': 'Offer', name: 'Site + Payments' },
+    { '@type': 'Offer', name: 'Full Automation' },
   ],
 }
 
@@ -40,11 +65,8 @@ export default function Home() {
     <>
       <Header />
       <main>
-        {/* SEO: LocalBusiness Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_SCHEMA) }}
-        />
+        {/* SEO: LocalBusiness/ProfessionalService Schema */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_SCHEMA) }} />
 
         {/* HERO */}
         <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-b from-neutral-50 to-white">
@@ -56,8 +78,8 @@ export default function Home() {
 
                 <p className="text-xl text-neutral-600 mb-8 max-w-2xl">
                   Websites + booking + Stripe deposits for{' '}
-                  <span className="font-semibold text-charcoal-900">service businesses</span> — so you get more leads, more
-                  bookings, and fewer no-shows.
+                  <span className="font-semibold text-charcoal-900">service businesses</span> — built in NJ, serving NYC + clients
+                  nationwide.
                 </p>
 
                 <div className="space-y-3 mb-8">
@@ -105,7 +127,7 @@ export default function Home() {
                   </div>
 
                   <p className="text-lg font-medium mb-1">Aavash Lamichhane</p>
-                  <p className="text-sm text-neutral-600 mb-5">NJ-based • Founder-led builds • Nationwide</p>
+                  <p className="text-sm text-neutral-600 mb-5">NJ-based • Founder-led builds • NYC + nationwide</p>
 
                   <div className="w-full max-w-xs space-y-3 text-left">
                     <div className="flex items-start gap-3">
@@ -129,8 +151,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
-            {/* (REMOVED) extra mini-cards under hero */}
           </div>
         </section>
 
@@ -158,14 +178,12 @@ export default function Home() {
           </div>
         </section>
 
-        {/* SHORT ABOUT TEASER (since you have a full About page) */}
+        {/* SHORT ABOUT TEASER */}
         <section className="section-padding bg-white">
           <div className="container-custom">
             <div className="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-start">
               <div>
-                <p className="text-xs uppercase tracking-wide text-neutral-500 mb-3">
-                  Founder-led • NJ-based • Working nationwide
-                </p>
+                <p className="text-xs uppercase tracking-wide text-neutral-500 mb-3">Founder-led • NJ-based • NYC + nationwide</p>
 
                 <h2 className="heading-md mb-4">
                   You’re not hiring an agency.
@@ -183,7 +201,7 @@ export default function Home() {
                     About Me
                   </a>
                   <a href="/work" className="btn-primary inline-flex items-center justify-center">
-                    Clearforge Labs
+                    View Work
                     <ArrowRight className="w-5 h-5 ml-2" />
                   </a>
                 </div>
@@ -229,7 +247,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* HOW IT WORKS (moved here, like before) */}
+        {/* HOW IT WORKS */}
         <section className="section-padding bg-white">
           <div className="container-custom">
             <div className="max-w-5xl mx-auto">
@@ -265,9 +283,7 @@ export default function Home() {
               </div>
 
               <div className="mt-10 bg-neutral-50 border-2 border-charcoal-900 p-7 text-center">
-                <p className="font-semibold text-charcoal-900">
-                  Guarantee: If you don’t like the first draft, I’ll revise it until it feels right.
-                </p>
+                <p className="font-semibold text-charcoal-900">Guarantee: If you don’t like the first draft, I’ll revise it until it feels right.</p>
                 <p className="text-sm text-neutral-600 mt-2">I only take 3 builds at a time so delivery stays fast.</p>
               </div>
             </div>
@@ -280,8 +296,7 @@ export default function Home() {
             <div className="text-center mb-12">
               <h2 className="heading-lg mb-4">Founders Pricing</h2>
               <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
-                Intro pricing for the next 10 client systems. Same build quality — reduced rate while I build my 2026
-                portfolio.
+                Intro pricing for the next 10 client systems. Same build quality — reduced rate while I build my 2026 portfolio.
               </p>
               <p className="text-sm text-neutral-500 mt-4">5–10 day delivery. 50% upfront, 50% after delivery.</p>
               <p className="text-sm font-semibold text-charcoal-900 mt-3">
@@ -359,10 +374,7 @@ export default function Home() {
             </div>
 
             <div className="text-center mt-10">
-              <a
-                href="/work"
-                className="inline-flex items-center gap-2 text-lg font-semibold hover:gap-4 transition-all duration-300"
-              >
+              <a href="/work" className="inline-flex items-center gap-2 text-lg font-semibold hover:gap-4 transition-all duration-300">
                 View All Work
                 <ArrowRight className="w-5 h-5" />
               </a>
@@ -387,7 +399,6 @@ export default function Home() {
                 Choose a time that works for you. I’ll review your business before our call so we can make it productive.
               </p>
 
-              {/* GOOGLE CALENDAR INLINE EMBED */}
               <div className="bg-white border-2 border-neutral-300">
                 <iframe
                   src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ1fXnsNiypWIUeTE3Mgtm6PPUYxWCtW_E3NiN8wQv0kAiCSaU7zGJUTfhePcfJMdFuqbZKwGNKE?gv=true"
@@ -399,7 +410,6 @@ export default function Home() {
                 />
               </div>
 
-              {/* TEXT + EMAIL OPTIONS */}
               <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
                 <a href="sms:7327349618" className="btn-secondary">
                   Prefer to Text? (732) 734-9618
@@ -410,8 +420,7 @@ export default function Home() {
               </div>
 
               <p className="text-sm text-neutral-500 mt-4">
-                If texting doesn’t open automatically, you can copy the number:{' '}
-                <span className="font-semibold">(732) 734-9618</span>
+                If texting doesn’t open automatically, you can copy the number: <span className="font-semibold">(732) 734-9618</span>
               </p>
             </div>
           </div>

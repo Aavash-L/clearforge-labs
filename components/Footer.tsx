@@ -8,12 +8,28 @@ export default function Footer() {
           <div className="md:col-span-2">
             <h3 className="text-2xl font-display font-bold mb-4">Clearforge Labs</h3>
             <p className="text-neutral-300 max-w-md">
-              Building automated client systems for small businesses. 
-              Fast websites, booking systems, and payment integration.
+              Founder-led builds for service businesses: fast websites, booking systems, and Stripe deposit/payment flows.
+              Built in NJ, serving NYC + clients nationwide.
             </p>
-            <p className="text-neutral-400 text-sm mt-4">
-              Founded by Aavash Lamichhane
-            </p>
+            <p className="text-neutral-400 text-sm mt-4">Founded by Aavash Lamichhane</p>
+
+            <div className="mt-6 space-y-2 text-sm">
+              <p className="text-neutral-300">
+                <span className="text-neutral-400">Email: </span>
+                <a href="mailto:hello@clearforgelabs.com" className="hover:text-white transition-colors">
+                  hello@clearforgelabs.com
+                </a>
+              </p>
+              <p className="text-neutral-300">
+                <span className="text-neutral-400">Text/Call: </span>
+                <a href="tel:+17327349618" className="hover:text-white transition-colors">
+                  (732) 734-9618
+                </a>
+              </p>
+              <p className="text-neutral-300">
+                <span className="text-neutral-400">Based in: </span>Edison, NJ
+              </p>
+            </div>
           </div>
 
           <div>
@@ -39,6 +55,16 @@ export default function Footer() {
                   Contact
                 </Link>
               </li>
+              <li>
+                <Link href="/#book-call" className="text-neutral-300 hover:text-white transition-colors">
+                  Book a Call
+                </Link>
+              </li>
+              <li>
+                <Link href="/#pricing" className="text-neutral-300 hover:text-white transition-colors">
+                  Pricing
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -51,6 +77,11 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
+
+            <div className="mt-6 text-sm text-neutral-400">
+              <p>Response time:</p>
+              <p className="text-neutral-300">Within 24 hours (business days)</p>
+            </div>
           </div>
         </div>
 

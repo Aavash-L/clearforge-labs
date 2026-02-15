@@ -1,12 +1,13 @@
-// contact/page.tsx
+// app/contact/page.tsx
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { Calendar, Mail, MessageSquare, MapPin, Clock } from 'lucide-react'
-
 import type { Metadata } from 'next'
 
+const SITE_URL = 'https://clearforgelabs.com'
+
 export const metadata: Metadata = {
-  title: 'Contact',
+  title: 'Contact | Clearforge Labs',
   description:
     'Contact Clearforge Labs to discuss your project. Book a free 15-minute strategy call or send your details — response within 24 hours on business days.',
   alternates: {
@@ -14,22 +15,18 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: 'Contact | Clearforge Labs',
-    description:
-      'Book a free strategy call or send your details. Founder-led, NJ-based, serving nationwide.',
-    url: 'https://clearforgelabs.com/contact',
+    description: 'Book a free strategy call or send your details. Founder-led, NJ-based, serving NYC + nationwide.',
+    url: `${SITE_URL}/contact`,
     type: 'website',
     images: ['/og.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Contact | Clearforge Labs',
-    description:
-      'Book a free strategy call or send your details. Founder-led, NJ-based, serving nationwide.',
+    description: 'Book a free strategy call or send your details. Founder-led, NJ-based, serving NYC + nationwide.',
     images: ['/og.png'],
   },
 }
-
-
 
 // ✅ Formspree endpoint (LIVE)
 const FORM_ACTION = 'https://formspree.io/f/mojndezo'
@@ -38,11 +35,62 @@ const FORM_ACTION = 'https://formspree.io/f/mojndezo'
 const BOOKING_IFRAME_SRC =
   'https://calendar.google.com/calendar/appointments/schedules/AcZssZ1fXnsNiypWIUeTE3Mgtm6PPUYxWCtW_E3NiN8wQv0kAiCSaU7zGJUTfhePcfJMdFuqbZKwGNKE?gv=true'
 
+// ✅ Contact page schema (SEO)
+const CONTACT_PAGE_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'ContactPage',
+      '@id': `${SITE_URL}/contact#contactpage`,
+      url: `${SITE_URL}/contact`,
+      name: 'Contact Clearforge Labs',
+      description:
+        'Book a free strategy call or send your project details. Founder-led websites, booking systems, and Stripe deposit/payment flows.',
+      isPartOf: {
+        '@type': 'WebSite',
+        '@id': `${SITE_URL}/#website`,
+        url: SITE_URL,
+        name: 'Clearforge Labs',
+      },
+      about: {
+        '@type': 'ProfessionalService',
+        '@id': `${SITE_URL}/#business`,
+        name: 'Clearforge Labs',
+        url: SITE_URL,
+        telephone: '+1-732-734-9618',
+        email: 'hello@clearforgelabs.com',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Edison',
+          addressRegion: 'NJ',
+          addressCountry: 'US',
+        },
+        areaServed: [
+          { '@type': 'AdministrativeArea', name: 'New Jersey' },
+          { '@type': 'City', name: 'New York City' },
+          { '@type': 'AdministrativeArea', name: 'New York' },
+          { '@type': 'Country', name: 'United States' },
+        ],
+      },
+    },
+    {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+        { '@type': 'ListItem', position: 2, name: 'Contact', item: `${SITE_URL}/contact` },
+      ],
+    },
+  ],
+}
+
 export default function ContactPage() {
   return (
     <>
       <Header />
       <main className="pt-24">
+        {/* SEO: ContactPage schema */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(CONTACT_PAGE_SCHEMA) }} />
+
         {/* Header */}
         <section className="section-padding bg-neutral-50">
           <div className="container-custom">
@@ -56,13 +104,18 @@ export default function ContactPage() {
 
               {/* Quick actions */}
               <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3">
-                <a href="sms:7327349618" className="btn-primary inline-flex items-center justify-center gap-2">
+                <a
+                  href="sms:7327349618"
+                  className="btn-primary inline-flex items-center justify-center gap-2"
+                  rel="nofollow"
+                >
                   <MessageSquare className="w-5 h-5" />
                   Text me (preferred)
                 </a>
                 <a
                   href="mailto:hello@clearforgelabs.com"
                   className="btn-secondary inline-flex items-center justify-center gap-2"
+                  rel="nofollow"
                 >
                   <Mail className="w-5 h-5" />
                   Email
@@ -87,7 +140,8 @@ export default function ContactPage() {
                   <h2 className="text-2xl font-bold">Book a Strategy Call</h2>
                 </div>
                 <p className="text-neutral-600 mb-6">
-                  Prefer to talk directly? Book a free 15-minute call. We&apos;ll discuss your needs and see if we&apos;re a good fit.
+                  Prefer to talk directly? Book a free 15-minute call. We&apos;ll discuss your needs and see if we&apos;re a
+                  good fit.
                 </p>
 
                 {/* Google Calendar Inline Embed */}
@@ -103,13 +157,18 @@ export default function ContactPage() {
                 </div>
 
                 <div className="mt-4 flex flex-col sm:flex-row gap-3">
-                  <a href="sms:7327349618" className="btn-secondary inline-flex items-center justify-center gap-2">
+                  <a
+                    href="sms:7327349618"
+                    className="btn-secondary inline-flex items-center justify-center gap-2"
+                    rel="nofollow"
+                  >
                     <MessageSquare className="w-5 h-5" />
                     Text instead
                   </a>
                   <a
                     href="mailto:hello@clearforgelabs.com"
                     className="btn-secondary inline-flex items-center justify-center gap-2"
+                    rel="nofollow"
                   >
                     <Mail className="w-5 h-5" />
                     Email instead
@@ -127,16 +186,17 @@ export default function ContactPage() {
                   <Mail className="w-8 h-8 text-charcoal-900" />
                   <h2 className="text-2xl font-bold">Send Your Details</h2>
                 </div>
-                <p className="text-neutral-600 mb-8">
-                  Not ready for a call? Fill this out and I&apos;ll reach out within 24 hours.
-                </p>
+                <p className="text-neutral-600 mb-8">Not ready for a call? Fill this out and I&apos;ll reach out within 24 hours.</p>
 
                 {/* ✅ Working form via Formspree */}
                 <form className="space-y-6" action={FORM_ACTION} method="POST">
                   {/* Helps Formspree email subject */}
                   <input type="hidden" name="_subject" value="New Lead — Clearforge Labs" />
-                  {/* Optional: redirect after submit (create /thanks page if you want) */}
-                  {/* <input type="hidden" name="_redirect" value="https://clearforgelabs.com/thanks" /> */}
+
+                  {/* ✅ Recommended: redirect to a thank-you page after submit */}
+                  {/* Create /thanks page later, or remove this if you don’t want it */}
+                  <input type="hidden" name="_redirect" value={`${SITE_URL}/thanks`} />
+
                   {/* Basic anti-spam honeypot (bots fill this, humans won't) */}
                   <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
 
@@ -299,16 +359,14 @@ export default function ContactPage() {
                     Send Message
                   </button>
 
-                  <p className="text-sm text-neutral-500 text-center">
-                    I&apos;ll respond within 24 hours during business days.
-                  </p>
+                  <p className="text-sm text-neutral-500 text-center">I&apos;ll respond within 24 hours during business days.</p>
                 </form>
 
                 {/* Optional fallback */}
                 <div className="mt-6 text-center">
                   <p className="text-xs text-neutral-500">
                     If the form ever bugs out, just{' '}
-                    <a href="sms:7327349618" className="text-charcoal-900 font-semibold hover:underline">
+                    <a href="sms:7327349618" className="text-charcoal-900 font-semibold hover:underline" rel="nofollow">
                       text me
                     </a>{' '}
                     and I’ll reply fast.
@@ -328,14 +386,14 @@ export default function ContactPage() {
               <div className="space-y-4">
                 <p className="text-neutral-700">
                   <strong>Email:</strong>{' '}
-                  <a href="mailto:hello@clearforgelabs.com" className="text-charcoal-900 hover:underline font-medium">
+                  <a href="mailto:hello@clearforgelabs.com" className="text-charcoal-900 hover:underline font-medium" rel="nofollow">
                     hello@clearforgelabs.com
                   </a>
                 </p>
 
                 <p className="text-neutral-700">
                   <strong>Text:</strong>{' '}
-                  <a href="sms:7327349618" className="text-charcoal-900 hover:underline font-medium">
+                  <a href="sms:7327349618" className="text-charcoal-900 hover:underline font-medium" rel="nofollow">
                     (732) 734-9618
                   </a>
                 </p>
@@ -343,7 +401,7 @@ export default function ContactPage() {
                 <p className="text-neutral-700 flex items-center justify-center gap-2">
                   <MapPin className="w-5 h-5" />
                   <span>
-                    <strong>Location:</strong> Edison, NJ (serving clients nationwide)
+                    <strong>Location:</strong> Edison, NJ (serving NYC + nationwide)
                   </span>
                 </p>
 
