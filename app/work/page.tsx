@@ -5,8 +5,37 @@ import { CheckCircle2 } from 'lucide-react'
 
 export const metadata = {
   title: 'Work & Case Studies | Clearforge Labs',
-  description: 'Real projects delivering results for small businesses and online communities.',
+  description:
+    'Case studies from Clearforge Labs: modern websites, Stripe payment flows, and automation systems built for real businesses and paid communities.',
+  alternates: {
+    canonical: '/work',
+  },
+  openGraph: {
+    title: 'Work & Case Studies | Clearforge Labs',
+    description:
+      'Real builds with real outcomes — websites, Stripe deposits, and automation systems for businesses and communities.',
+    url: 'https://clearforgelabs.com/work',
+    siteName: 'Clearforge Labs',
+    type: 'website',
+    locale: 'en_US',
+    images: [
+      {
+        url: '/og.png',
+        width: 1200,
+        height: 630,
+        alt: 'Clearforge Labs',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Work & Case Studies | Clearforge Labs',
+    description:
+      'Real builds with real outcomes — websites, Stripe deposits, and automation systems for businesses and communities.',
+    images: ['/og.png'],
+  },
 }
+
 
 export default function WorkPage() {
   return (

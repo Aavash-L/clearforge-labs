@@ -5,9 +5,38 @@ import CTASection from '@/components/CTASection'
 import { Code2, Database, Zap, Briefcase, GraduationCap, MapPin, ShieldCheck } from 'lucide-react'
 
 export const metadata = {
-  title: 'About | Clearforge Labs',
-  description: 'Founded by Aavash Lamichhane. Building automated systems for small businesses.',
+  title: 'About Aavash | Clearforge Labs (Edison, NJ)',
+  description:
+    'Meet Aavash Lamichhane, founder of Clearforge Labs. NJ-based, founder-led builds: modern websites, booking systems, Stripe deposits, and automations for service businesses.',
+  alternates: {
+    canonical: '/about',
+  },
+  openGraph: {
+    title: 'About Aavash | Clearforge Labs',
+    description:
+      'Founder-led builds from Edison, NJ — websites + booking + Stripe deposits + automations for service businesses.',
+    url: 'https://clearforgelabs.com/about',
+    siteName: 'Clearforge Labs',
+    type: 'website',
+    locale: 'en_US',
+    images: [
+      {
+        url: '/og.png',
+        width: 1200,
+        height: 630,
+        alt: 'Clearforge Labs',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'About Aavash | Clearforge Labs',
+    description:
+      'Founder-led builds from Edison, NJ — websites + booking + Stripe deposits + automations for service businesses.',
+    images: ['/og.png'],
+  },
 }
+
 
 export default function AboutPage() {
   return (

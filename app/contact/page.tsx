@@ -4,9 +4,38 @@ import Footer from '@/components/Footer'
 import { Calendar, Mail, MessageSquare, MapPin, Clock } from 'lucide-react'
 
 export const metadata = {
-  title: 'Contact | Clearforge Labs',
-  description: 'Get in touch to discuss your project. Free 15-minute strategy call available.',
+  title: 'Contact | Clearforge Labs (Book a Free Strategy Call)',
+  description:
+    'Contact Clearforge Labs to build a modern website with booking + Stripe deposits. Book a free 15-minute strategy call or send your project details.',
+  alternates: {
+    canonical: '/contact',
+  },
+  openGraph: {
+    title: 'Contact | Clearforge Labs',
+    description:
+      'Book a free 15-minute strategy call or send your details. Websites + booking + Stripe deposits, built fast.',
+    url: 'https://clearforgelabs.com/contact',
+    siteName: 'Clearforge Labs',
+    type: 'website',
+    locale: 'en_US',
+    images: [
+      {
+        url: '/og.png',
+        width: 1200,
+        height: 630,
+        alt: 'Clearforge Labs',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Contact | Clearforge Labs',
+    description:
+      'Book a free 15-minute strategy call or send your details. Websites + booking + Stripe deposits, built fast.',
+    images: ['/og.png'],
+  },
 }
+
 
 // ✅ Formspree endpoint (LIVE)
 const FORM_ACTION = 'https://formspree.io/f/mojndezo'
