@@ -8,17 +8,67 @@ export const metadata: Metadata = {
   title: 'Services | Clearforge Labs',
   description:
     'Websites that convert, booking systems, Stripe payments/deposits, and simple automations for service businesses. NJ-based, founder-led builds.',
+
   alternates: {
     canonical: '/services',
   },
+
+  keywords: [
+    'web design NJ',
+    'web developer New Jersey',
+    'website developer Edison NJ',
+    'small business website NJ',
+    'service business websites',
+    'website + booking system',
+    'Google Calendar booking embed',
+    'Calendly booking website',
+    'Stripe payments integration',
+    'Stripe deposit setup',
+    'payment links Stripe',
+    'business automations',
+    'lead capture systems',
+    'Clearforge Labs',
+  ],
+
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+
   openGraph: {
     title: 'Services | Clearforge Labs',
     description:
       'Websites that convert, booking systems, Stripe payments/deposits, and simple automations for service businesses.',
     url: 'https://clearforgelabs.com/services',
+    siteName: 'Clearforge Labs',
     type: 'website',
+    locale: 'en_US',
+    images: [
+      {
+        url: '/og.png',
+        width: 1200,
+        height: 630,
+        alt: 'Clearforge Labs',
+      },
+    ],
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Services | Clearforge Labs',
+    description:
+      'Websites that convert, booking systems, Stripe payments/deposits, and simple automations for service businesses.',
+    images: ['/og.png'],
   },
 }
+
 
 const SERVICES_SCHEMA = {
   '@context': 'https://schema.org',
