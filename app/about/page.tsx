@@ -4,38 +4,32 @@ import Footer from '@/components/Footer'
 import CTASection from '@/components/CTASection'
 import { Code2, Database, Zap, Briefcase, GraduationCap, MapPin, ShieldCheck } from 'lucide-react'
 
-export const metadata = {
-  title: 'About Aavash | Clearforge Labs (Edison, NJ)',
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'About',
   description:
-    'Meet Aavash Lamichhane, founder of Clearforge Labs. NJ-based, founder-led builds: modern websites, booking systems, Stripe deposits, and automations for service businesses.',
+    'Clearforge Labs is founder-led by Aavash Lamichhane. Websites + booking + Stripe deposits + automations for service businesses. NJ-based, serving nationwide.',
   alternates: {
     canonical: '/about',
   },
   openGraph: {
-    title: 'About Aavash | Clearforge Labs',
+    title: 'About | Clearforge Labs',
     description:
-      'Founder-led builds from Edison, NJ — websites + booking + Stripe deposits + automations for service businesses.',
+      'Founder-led systems: websites + booking + Stripe deposits + automations. Built fast with clean communication.',
     url: 'https://clearforgelabs.com/about',
-    siteName: 'Clearforge Labs',
     type: 'website',
-    locale: 'en_US',
-    images: [
-      {
-        url: '/og.png',
-        width: 1200,
-        height: 630,
-        alt: 'Clearforge Labs',
-      },
-    ],
+    images: ['/og.png'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About Aavash | Clearforge Labs',
+    title: 'About | Clearforge Labs',
     description:
-      'Founder-led builds from Edison, NJ — websites + booking + Stripe deposits + automations for service businesses.',
+      'Founder-led systems: websites + booking + Stripe deposits + automations. Built fast with clean communication.',
     images: ['/og.png'],
   },
 }
+
 
 
 export default function AboutPage() {

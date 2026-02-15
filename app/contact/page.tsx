@@ -3,38 +3,32 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import { Calendar, Mail, MessageSquare, MapPin, Clock } from 'lucide-react'
 
-export const metadata = {
-  title: 'Contact | Clearforge Labs (Book a Free Strategy Call)',
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Contact',
   description:
-    'Contact Clearforge Labs to build a modern website with booking + Stripe deposits. Book a free 15-minute strategy call or send your project details.',
+    'Contact Clearforge Labs to discuss your project. Book a free 15-minute strategy call or send your details — response within 24 hours on business days.',
   alternates: {
     canonical: '/contact',
   },
   openGraph: {
     title: 'Contact | Clearforge Labs',
     description:
-      'Book a free 15-minute strategy call or send your details. Websites + booking + Stripe deposits, built fast.',
+      'Book a free strategy call or send your details. Founder-led, NJ-based, serving nationwide.',
     url: 'https://clearforgelabs.com/contact',
-    siteName: 'Clearforge Labs',
     type: 'website',
-    locale: 'en_US',
-    images: [
-      {
-        url: '/og.png',
-        width: 1200,
-        height: 630,
-        alt: 'Clearforge Labs',
-      },
-    ],
+    images: ['/og.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Contact | Clearforge Labs',
     description:
-      'Book a free 15-minute strategy call or send your details. Websites + booking + Stripe deposits, built fast.',
+      'Book a free strategy call or send your details. Founder-led, NJ-based, serving nationwide.',
     images: ['/og.png'],
   },
 }
+
 
 
 // ✅ Formspree endpoint (LIVE)

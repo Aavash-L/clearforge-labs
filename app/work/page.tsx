@@ -3,38 +3,33 @@ import Footer from '@/components/Footer'
 import CTASection from '@/components/CTASection'
 import { CheckCircle2 } from 'lucide-react'
 
-export const metadata = {
-  title: 'Work & Case Studies | Clearforge Labs',
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Work & Case Studies',
   description:
-    'Case studies from Clearforge Labs: modern websites, Stripe payment flows, and automation systems built for real businesses and paid communities.',
+    'Case studies from Clearforge Labs — real builds for small businesses and online communities: websites, Stripe payment flows, booking, and automation.',
   alternates: {
     canonical: '/work',
   },
   openGraph: {
     title: 'Work & Case Studies | Clearforge Labs',
     description:
-      'Real builds with real outcomes — websites, Stripe deposits, and automation systems for businesses and communities.',
+      'Real projects: websites that convert, Stripe integrations, booking systems, and automation.',
     url: 'https://clearforgelabs.com/work',
-    siteName: 'Clearforge Labs',
     type: 'website',
-    locale: 'en_US',
-    images: [
-      {
-        url: '/og.png',
-        width: 1200,
-        height: 630,
-        alt: 'Clearforge Labs',
-      },
-    ],
+    images: ['/og.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Work & Case Studies | Clearforge Labs',
     description:
-      'Real builds with real outcomes — websites, Stripe deposits, and automation systems for businesses and communities.',
+      'Real projects: websites that convert, Stripe integrations, booking systems, and automation.',
     images: ['/og.png'],
   },
 }
+
+
 
 
 export default function WorkPage() {

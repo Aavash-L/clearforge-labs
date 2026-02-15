@@ -43,12 +43,10 @@ export const metadata: Metadata = {
     'Aavash Lamichhane',
   ],
 
-  // ✅ High impact: canonical + clean URLs
   alternates: {
     canonical: '/',
   },
 
-  // ✅ High impact: robots directives (won’t conflict with your public/robots.txt)
   robots: {
     index: true,
     follow: true,
@@ -61,14 +59,18 @@ export const metadata: Metadata = {
     },
   },
 
-  // ✅ High impact: icons (safe even if you only have favicon.ico right now)
   icons: {
     icon: '/favicon.ico',
-    // If you add these later, it will auto-use them:
+    // Optional later:
     // apple: '/apple-touch-icon.png',
   },
 
-  // ✅ Nice-to-have: category hint
+  // Optional (nice-to-have):
+  // Add your Google Search Console HTML verification token here IF you ever use that method.
+  // verification: {
+  //   google: 'PASTE_TOKEN_HERE',
+  // },
+
   category: 'technology',
 
   openGraph: {
@@ -81,7 +83,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
     images: [
       {
-        url: '/og.png', // ok if you add later
+        url: '/og.png',
         width: 1200,
         height: 630,
         alt: 'Clearforge Labs',
@@ -94,7 +96,15 @@ export const metadata: Metadata = {
     title: 'Clearforge Labs | Websites + Booking + Stripe Deposits',
     description:
       'Fast, modern websites that convert — booking + Stripe deposits included. NJ-based, founder-led builds.',
-    images: ['/og.png'], // ok if you add later
+    images: ['/og.png'],
+  },
+
+  // Optional nice-to-haves (safe, don’t change features)
+  appleWebApp: {
+    title: 'Clearforge Labs',
+  },
+  formatDetection: {
+    telephone: false,
   },
 }
 
@@ -102,7 +112,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`}>
       <body className="font-sans antialiased">
-        {/* ✅ High impact: Schema markup (helps Google understand your business) */}
         <Script
           id="schema-org"
           type="application/ld+json"
@@ -115,8 +124,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   '@type': 'Organization',
                   name: 'Clearforge Labs',
                   url: SITE_URL,
+                  // If you don’t want logo tied to og.png, change this to /logo.png later.
                   logo: `${SITE_URL}/og.png`,
-                  sameAs: [],
                 },
                 {
                   '@type': 'LocalBusiness',
