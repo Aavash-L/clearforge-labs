@@ -1,11 +1,52 @@
+import type { Metadata } from 'next'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import CTASection from '@/components/CTASection'
 import { Zap, CreditCard, Calendar, Workflow, CheckCircle2 } from 'lucide-react'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Services | Clearforge Labs',
-  description: 'Websites, booking systems, payments, and automations for small businesses.',
+  description:
+    'Websites that convert, booking systems, Stripe payments/deposits, and simple automations for service businesses. NJ-based, founder-led builds.',
+  alternates: {
+    canonical: '/services',
+  },
+  openGraph: {
+    title: 'Services | Clearforge Labs',
+    description:
+      'Websites that convert, booking systems, Stripe payments/deposits, and simple automations for service businesses.',
+    url: 'https://clearforgelabs.com/services',
+    type: 'website',
+  },
+}
+
+const SERVICES_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Websites, Booking, Payments, Automation',
+  provider: {
+    '@type': 'LocalBusiness',
+    name: 'Clearforge Labs',
+    url: 'https://clearforgelabs.com',
+    telephone: '+17327349618',
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: 'Edison',
+      addressRegion: 'NJ',
+      addressCountry: 'US',
+    },
+  },
+  areaServed: ['New Jersey', 'United States'],
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Clearforge Labs Services',
+    itemListElement: [
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Websites That Convert' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Payments & Deposits (Stripe)' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Booking & Scheduling' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Business Automations' } },
+    ],
+  },
 }
 
 export default function ServicesPage() {
@@ -13,6 +54,12 @@ export default function ServicesPage() {
     <>
       <Header />
       <main className="pt-24">
+        {/* SEO: Services Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(SERVICES_SCHEMA) }}
+        />
+
         {/* Header */}
         <section className="section-padding bg-neutral-50">
           <div className="container-custom">
@@ -329,7 +376,7 @@ export default function ServicesPage() {
                     3
                   </div>
                   <div>
-                    <h3 className="font-bold text-xl mb-2">Build & Review (7–14 days)</h3>
+                    <h3 className="font-bold text-xl mb-2">Build & Review (5–10 days)</h3>
                     <p className="text-neutral-600">
                       I build your system. You review and request changes. I refine until you're happy.
                     </p>
@@ -343,7 +390,7 @@ export default function ServicesPage() {
                   <div>
                     <h3 className="font-bold text-xl mb-2">Launch & Support</h3>
                     <p className="text-neutral-600">
-                      Final 50% payment. Site goes live. I provide 7 days of post-launch support for any issues.
+                      Final 50% payment. Site goes live. I provide 30-60 days of post-launch support for any issues.
                     </p>
                   </div>
                 </div>

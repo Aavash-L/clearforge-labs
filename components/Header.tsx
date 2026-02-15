@@ -40,15 +40,14 @@ export default function Header() {
               Contact
             </Link>
 
-            {/* NEW: Pricing button */}
-            <a href="#pricing" className="btn-secondary text-sm px-6 py-3">
+            {/* FIXED: Always route to homepage section */}
+            <Link href="/#pricing" className="btn-secondary text-sm px-6 py-3">
               Book / Pay Now
-            </a>
+            </Link>
 
-            {/* Existing */}
-            <a href="#book-call" className="btn-primary text-sm px-6 py-3">
+            <Link href="/#book-call" className="btn-primary text-sm px-6 py-3">
               Book Call
-            </a>
+            </Link>
           </div>
 
           {/* Mobile menu button */}

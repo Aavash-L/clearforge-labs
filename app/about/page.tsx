@@ -124,7 +124,7 @@ export default function AboutPage() {
                   </div>
                   <h3 className="font-bold text-lg mb-3">Speed Matters</h3>
                   <p className="text-neutral-600">
-                    7–14 day delivery. No endless revisions or scope creep. I ship fast and iterate based on feedback.
+                    5–10 day delivery. No endless revisions or scope creep. I ship fast and iterate based on feedback.
                   </p>
                 </div>
 

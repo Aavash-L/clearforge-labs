@@ -6,11 +6,46 @@ import CaseStudyCard from '@/components/CaseStudyCard'
 import CTASection from '@/components/CTASection'
 import { CheckCircle2, Calendar, ArrowRight, Shield, Clock, Wrench } from 'lucide-react'
 
+const LOCAL_BUSINESS_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: 'Clearforge Labs',
+  url: 'https://clearforgelabs.com',
+  telephone: '+17327349618',
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'Edison',
+    addressRegion: 'NJ',
+    addressCountry: 'US',
+  },
+  areaServed: ['New Jersey', 'United States'],
+  founder: {
+    '@type': 'Person',
+    name: 'Aavash Lamichhane',
+  },
+  sameAs: [
+    'https://clearforgelabs.com',
+  ],
+  serviceType: [
+    'Website Development',
+    'Booking Systems',
+    'Stripe Payment Integration',
+    'Stripe Deposits',
+    'Business Automation',
+  ],
+}
+
 export default function Home() {
   return (
     <>
       <Header />
       <main>
+        {/* SEO: LocalBusiness Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_SCHEMA) }}
+        />
+
         {/* HERO */}
         <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-gradient-to-b from-neutral-50 to-white">
           <div className="container-custom">
@@ -375,7 +410,8 @@ export default function Home() {
               </div>
 
               <p className="text-sm text-neutral-500 mt-4">
-                If texting doesn’t open automatically, you can copy the number: <span className="font-semibold">(732) 734-9618</span>
+                If texting doesn’t open automatically, you can copy the number:{' '}
+                <span className="font-semibold">(732) 734-9618</span>
               </p>
             </div>
           </div>
