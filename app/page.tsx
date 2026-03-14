@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, useCallback, memo } from 'react'
 import dynamic from 'next/dynamic'
 import { Card } from '@/components/ui/card'
 import {
-  motion, useScroll, useTransform, useInView, AnimatePresence, LazyMotion, domAnimation
+  motion, useScroll, useTransform, useInView, AnimatePresence
 } from 'framer-motion'
 import {
   ArrowRight, CheckCircle, Clock, CreditCard, MessageCircle,
@@ -12,15 +12,8 @@ import {
   BarChart3, Lock, X, Sun, Moon, ExternalLink, Star, Quote
 } from 'lucide-react'
 
-// ── Lazy-load the heavy Spline scene (saves ~500kb on first paint) ──
-const SplineScene = dynamic(
-  () => import('@/components/ui/splite').then(m => ({ default: m.SplineScene })),
-  { ssr: false, loading: () => <div style={{ width: '100%', height: '100%' }} /> }
-)
-const Spotlight = dynamic(
-  () => import('@/components/ui/spotlight').then(m => ({ default: m.Spotlight })),
-  { ssr: false }
-)
+import { SplineScene } from '@/components/ui/splite'
+import { Spotlight } from '@/components/ui/spotlight'
 
 // ── Tokens ────────────────────────────────────────────────
 function tk(dark: boolean) {
@@ -175,7 +168,7 @@ const BookingModal = memo(function BookingModal({ open, onClose, dark: d }: { op
               flexShrink: 0,
             }}>
               <p style={{ fontSize: 11, color: c.muted, textAlign: 'center' }}>
-                20-minute call · No pitch · Aavash responds within 24 hrs
+                15-min call · No pitch · Aavash responds within 24 hrs
               </p>
             </div>
           </motion.div>
@@ -313,6 +306,12 @@ const REVIEWS = [
   { name: 'Shane L.',   role: 'Manager, Wingciti Cafe',         loc: 'Piscataway, NJ', initials: 'SL', text: "Our experience with ClearForgeLabs was top-notch. The team at Wingciti Cafe couldn't be happier with our new, fast-loading site. It’s significantly improved our local search ranking and foot traffic." },
 ]
 
+const WORKS = [
+  { name: 'Dominus Capital',       type: 'Trading / Finance', url: 'https://www.dominuscapitalofficial.com/', tag: 'Multi-page + Discord CTA' },
+  { name: 'Wings Citi Cafe',       type: 'Restaurant / Food', url: 'https://www.wingsciticafe.com/',          tag: 'Menu + Online Ordering' },
+  { name: 'Urmi Threading Salon',  type: 'Beauty / Salon',    url: 'https://www.urmithreadingsalon.com/',     tag: 'Booking + Gallery' },
+]
+
 // ── Main ──────────────────────────────────────────────────
 export default function ClearForgeLabs() {
   const [dark, setDark]           = useState(false)   // ← DEFAULT LIGHT
@@ -320,6 +319,9 @@ export default function ClearForgeLabs() {
   const [preview, setPreview]     = useState<{ name: string; url: string } | null>(null)
   const [scrollY, setScrollY]     = useState(0)
   const [mobile, setMobile]       = useState(false)
+  const [mounted, setMounted]     = useState(false)
+
+  useEffect(() => setMounted(true), [])
 
   const heroRef             = useRef(null)
   const { scrollYProgress } = useScroll()
@@ -339,18 +341,14 @@ export default function ClearForgeLabs() {
   const closeModal = useCallback(() => setModalOpen(false), [])
   const closePreview = useCallback(() => setPreview(null), [])
 
-  const c    = tk(dark)
-  const sp   = mobile ? '56px 20px' : '88px 60px'
-  const mw   = 980
+  const c = tk(dark)
+  const sp = mobile ? '56px 20px' : '88px 60px'
+  const mw = 980
   const col2 = mobile ? '1fr' : '1fr 1fr'
   const col3 = mobile ? '1fr' : '1fr 1fr 1fr'
   const col4 = mobile ? '1fr 1fr' : '1fr 1fr 1fr 1fr'
 
-  const WORKS = [
-    { name: 'Dominus Capital',       type: 'Trading / Finance', url: 'https://www.dominuscapitalofficial.com/', tag: 'Multi-page + Discord CTA' },
-    { name: 'Wings Citi Cafe',       type: 'Restaurant / Food', url: 'https://www.wingsciticafe.com/',          tag: 'Menu + Online Ordering' },
-    { name: 'Urmi Threading Salon',  type: 'Beauty / Salon',    url: 'https://www.urmithreadingsalon.com/',     tag: 'Booking + Gallery' },
-  ]
+  if (!mounted) return null
 
   return (
     <>
@@ -383,9 +381,7 @@ export default function ClearForgeLabs() {
         iframe, img, video, canvas { transition: none !important; }
       `}</style>
 
-      {/* Wrap in LazyMotion to reduce framer-motion bundle size */}
-      <LazyMotion features={domAnimation}>
-        <div style={{ background: c.bg, color: c.text, minHeight: '100vh', transition: 'background 0.3s, color 0.3s' }}>
+      <div suppressHydrationWarning style={{ background: c.bg, color: c.text, minHeight: '100vh', transition: 'background 0.3s, color 0.3s' }}>
 
         {/* ══ NAV ══ */}
         <motion.nav initial={{ y: -16, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.4 }}
@@ -531,7 +527,7 @@ export default function ClearForgeLabs() {
             </FadeIn>
             <div style={{ display:'grid', gridTemplateColumns:col4, gap:12 }}>
               {[
-                { n:'01', title:'Free mock call',    desc:"20 min. Tell me about your business. I ask the right questions so the mock hits on the first try.",                       icon:<Calendar size={16}/> },
+                { n: '01', title: 'Free mock call', desc: '15 min. Tell me about your business. I ask the right questions so the mock hits first time.', icon: <Calendar size={16} /> },
                 { n:'02', title:'Mock delivered',    desc:"Full design preview in 3–5 days. You see exactly what you're getting before a single dollar changes hands.",             icon:<Globe size={16}/> },
                 { n:'03', title:'Approve + deposit', desc:"Love it? Sign a one-page agreement and pay 50% via Stripe. I start building that same day.",                            icon:<Lock size={16}/> },
                 { n:'04', title:'You go live',       desc:"5–10 days later your site is live. No surprise fees, no delays.",                           icon:<Zap size={16}/> },
@@ -746,7 +742,7 @@ export default function ClearForgeLabs() {
                 </div>
                 <div style={{ fontWeight:800, color:c.text, fontSize:16, letterSpacing:'-0.02em' }}>Aavash Lamichhane</div>
                 <div style={{ fontSize:12, color:c.textSub, marginTop:3 }}>Founder, ClearForgeLabs</div>
-                <div style={{ fontSize:11, color:c.muted, marginTop:2 }}>NJ · Est. 2024</div>
+                <div style={{ fontSize:11, color:c.muted, marginTop:2 }}>NJ · Est. 2026</div>
                 <div style={{ marginTop:20, padding:'12px 22px', borderRadius:10, background:c.bgSubtle, border:`1px solid ${c.cardBorder}` }}>
                   <div style={{ fontSize:24, fontWeight:900, color:c.text, letterSpacing:'-0.03em' }}>3</div>
                   <div style={{ fontSize:11, color:c.muted, marginTop:1 }}>max clients at once</div>
@@ -794,7 +790,7 @@ export default function ClearForgeLabs() {
               <img src="/favicon.png" alt="ClearForgeLabs Logo" style={{ width: 22, height: 22, borderRadius: 5, objectFit: 'cover' }} />
               <span style={{ fontWeight:700, fontSize:12, color:c.text, letterSpacing:'-0.01em' }}>ClearForgeLabs</span>
             </div>
-            <span style={{ fontSize:11, color:c.muted }}>© 2024 ClearForgeLabs · NJ-based · Built by Aavash Lamichhane</span>
+            <span style={{ fontSize:11, color:c.muted }}>© 2026 ClearForgeLabs · NJ-based · Built by Aavash Lamichhane</span>
             <button onClick={openModal}
               style={{ fontSize:12, fontWeight:700, color:c.textSub, background:'none', border:'none', cursor:'pointer', letterSpacing:'-0.01em' }}>
               Get free mock →
@@ -803,7 +799,6 @@ export default function ClearForgeLabs() {
         </footer>
 
         </div>
-      </LazyMotion>
 
       <BookingModal open={modalOpen} onClose={closeModal} dark={dark} />
       <SitePreviewModal site={preview} onClose={closePreview} dark={dark} />
