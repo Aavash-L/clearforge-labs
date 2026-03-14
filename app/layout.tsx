@@ -60,7 +60,7 @@ export const metadata: Metadata = {
       'Fast, mobile-first websites with payment integration and booking built in. Free mock website. Delivered in 5–10 days.',
     images: [
       {
-        url: '/og-image.png',   // ← add a 1200x630 image to /public/og-image.png
+        url: '/og1.png',   // ← add a 1200x630 image to /public/og-image.png
         width: 1200,
         height: 630,
         alt: 'ClearForgeLabs — Modern Websites for Local Businesses',
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'ClearForgeLabs — Modern Websites That Actually Bring You Clients',
     description: 'Fast, mobile-first websites. Free mock. Delivered in 5–10 days.',
-    images: ['/og-image.png'],
+    images: ['/og1.png'],
   },
 
   // Favicon / icons
