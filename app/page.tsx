@@ -221,7 +221,7 @@ const SitePreviewModal = memo(function SitePreviewModal({ site, onClose, dark: d
 })
 
 // ── Ticker ────────────────────────────────────────────────
-const TICKER_ITEMS = ['NJ-Based Builder','5–10 Day Delivery','Stripe Deposits','Mobile-First','Direct Communication','No Middlemen','SEO Ready','Booking Systems','Max 3 Clients','Founder-Led']
+const TICKER_ITEMS = ['NJ-Based Builder','5–10 Day Delivery','Payment Integration','Mobile-First','Direct Communication','No Middlemen','SEO Ready','Booking Systems','Max 3 Clients','Founder-Led']
 
 const Ticker = memo(function Ticker({ dark: d }: { dark: boolean }) {
   const c = tk(d)
@@ -455,7 +455,7 @@ export default function ClearForgeLabs() {
                 padding: '12px 20px', borderRadius: 12, backdropFilter: 'blur(10px)',
                 border: `1px solid ${c.cardBorder}`,
               }}>
-              Fast, mobile-first websites with Stripe deposits and booking built in. Delivered in 5–10 days. Built in NJ, serving businesses nationwide.
+              Fast, mobile-first websites with payment integration and booking built in. Delivered in 5–10 days. Built in NJ, serving businesses nationwide.
             </motion.p>
 
             <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}
@@ -478,7 +478,7 @@ export default function ClearForgeLabs() {
               style={{ display: 'flex', flexWrap: 'wrap', gap: 8, justifyContent: 'center' }}>
               {[
                 { icon: <Clock size={11}/>,        text: '5–10 day delivery' },
-                { icon: <CreditCard size={11}/>,   text: 'Stripe deposits built in' },
+                { icon: <CreditCard size={11}/>,   text: 'Payment integration built in' },
                 { icon: <MessageCircle size={11}/>,text: 'Talk directly to Aavash' },
               ].map((p, i) => (
                 <div key={i} style={{ display:'inline-flex', alignItems:'center', gap:6, padding:'6px 12px', borderRadius:999, background:c.bgSubtle, border:`1px solid ${c.cardBorder}`, fontSize:12, color:c.textSub }}>
@@ -529,7 +529,7 @@ export default function ClearForgeLabs() {
               {[
                 { n: '01', title: 'Free mock call', desc: '15 min. Tell me about your business. I ask the right questions so the mock hits first time.', icon: <Calendar size={16} /> },
                 { n:'02', title:'Mock delivered',    desc:"Full design preview in 3–5 days. You see exactly what you're getting before a single dollar changes hands.",             icon:<Globe size={16}/> },
-                { n:'03', title:'Approve + deposit', desc:"Love it? Sign a one-page agreement and pay 50% via Stripe. I start building that same day.",                            icon:<Lock size={16}/> },
+                { n:'03', title:'Approve + deposit', desc:"Love it? Sign a one-page agreement and pay 50% up front. I start building that same day.",                            icon:<Lock size={16}/> },
                 { n:'04', title:'You go live',       desc:"5–10 days later your site is live. No surprise fees, no delays.",                           icon:<Zap size={16}/> },
               ].map((item, i) => (
                 <FadeIn key={i} delay={i * 0.08} style={{ height:'100%' }}>
@@ -592,7 +592,7 @@ export default function ClearForgeLabs() {
                 Simple pricing.<br />No surprises.
               </h2>
               <p style={{ fontSize:13, color:c.textSub, marginBottom:10, maxWidth:420, lineHeight:1.6 }}>
-                50% upfront via Stripe, 50% on launch. All packages include a free mock before you commit.
+                50% upfront, 50% on launch. All packages include a free mock before you commit.
               </p>
               <div style={{ display:'inline-flex', alignItems:'center', gap:8, padding:'6px 12px', borderRadius:999, background:c.card, border:`1px solid ${c.cardBorder}`, marginBottom:44 }}>
                 <CheckCircle size={11} color={c.textSub} />
@@ -609,7 +609,7 @@ export default function ClearForgeLabs() {
               <FadeIn delay={0.1}>
                 <PricingCard dark={dark} tier="Growth" price="$1,500" sub="setup" popular onBook={openModal}
                   desc="For businesses ready to convert visitors. Booking, Stripe deposits, SEO, and Google integration included."
-                  features={['4–6 page website','Booking system setup','Stripe deposit collection','On-page SEO','Google Business integration','Analytics setup','7–10 day delivery']} />
+                  features={['4–6 page website','Booking system setup','Payment integration','On-page SEO','Google Business integration','Analytics setup','7–10 day delivery']} />
               </FadeIn>
               <FadeIn delay={0.2}>
                 <PricingCard dark={dark} tier="Pro" price="$2,500" sub="setup" onBook={openModal}
@@ -695,7 +695,7 @@ export default function ClearForgeLabs() {
                 { icon:<Smartphone size={14}/>, title:'Mobile-first',    desc:'Designed for phones first. Works perfectly on every screen size.' },
                 { icon:<Zap size={14}/>,        title:'Fast load times', desc:'Optimized for Core Web Vitals. Speed affects your Google ranking.' },
                 { icon:<BarChart3 size={14}/>,  title:'SEO foundation',  desc:'Meta tags, sitemaps, structured data — Google finds you from day one.' },
-                { icon:<CreditCard size={14}/>, title:'Stripe deposits', desc:'Collect deposits at booking automatically. No-shows drop immediately.' },
+                { icon:<CreditCard size={14}/>, title:'Payment integration', desc:'Collect payments at booking automatically. No-shows drop immediately.' },
                 { icon:<Calendar size={14}/>,   title:'Booking system',  desc:'Calendly or custom booking embedded and live at launch.' },
                 { icon:<Shield size={14}/>,     title:'SSL + Security',  desc:'HTTPS, security headers, and industry best practices built in.' },
               ].map((f, i) => (

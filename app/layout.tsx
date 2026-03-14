@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     template: '%s | ClearForgeLabs',
   },
   description:
-    'Fast, mobile-first websites with Stripe deposits and booking built in. Delivered in 5–10 days. NJ-based, serving businesses nationwide. Free mock website included.',
+    'Fast, mobile-first websites with payment integration and booking built in. Delivered in 5–10 days. NJ-based, serving businesses nationwide. Free mock website included.',
   keywords: [
     'web design NJ',
     'website designer New Jersey',
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     siteName: 'ClearForgeLabs',
     title: 'ClearForgeLabs — Modern Websites That Actually Bring You Clients',
     description:
-      'Fast, mobile-first websites with Stripe deposits and booking built in. Free mock website. Delivered in 5–10 days.',
+      'Fast, mobile-first websites with payment integration and booking built in. Free mock website. Delivered in 5–10 days.',
     images: [
       {
         url: '/og-image.png',   // ← add a 1200x630 image to /public/og-image.png
