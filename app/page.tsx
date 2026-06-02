@@ -626,7 +626,7 @@ export default function ClearForgeLabs() {
                   <div style={{ fontSize:12, color:c.textSub, marginTop:2 }}>Updates, backups, uptime monitoring, and priority support.</div>
                 </div>
                 <div style={{ fontWeight:900, fontSize:22, color:c.text, letterSpacing:'-0.03em' }}>
-                  $50<span style={{ fontSize:13, fontWeight:400, color:c.textSub }}>/mo</span>
+                  $100<span style={{ fontSize:13, fontWeight:400, color:c.textSub }}>/mo</span>
                 </div>
               </div>
             </FadeIn>
