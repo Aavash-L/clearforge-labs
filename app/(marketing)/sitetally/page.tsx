@@ -261,7 +261,7 @@ export default function SiteTallyPage() {
             <Reveal>
               <p className={site.kicker}>Pricing</p>
               <h2 id="pricing-title" className={site.h2}>Pick a plan by how much paper you push.</h2>
-              <p className={site.lead} style={{ marginTop: 16 }}>Monthly plans plus a one-time setup. Extra documents are $0.50 each. Bigger operations get a custom quote.</p>
+              <p className={site.lead} style={{ marginTop: 16 }}>Monthly plans plus a one-time setup, where we load your vendors, jobs and card data so the checks know what &ldquo;right&rdquo; looks like on day one. Extra documents are $0.50 each. Bigger operations get a custom quote.</p>
             </Reveal>
 
             <div className={s.plans}>
@@ -292,21 +292,6 @@ export default function SiteTallyPage() {
                   <a href="#signup" className={`${site.btn} ${site.btnGhost} ${s.planBtn}`}>{p.custom ? 'Get a quote' : 'Get started'}</a>
                 </Reveal>
               ))}
-            </div>
-
-            <div className={s.offers}>
-              <Reveal className={s.offer}>
-                <span className={s.offerTag}>Promo code</span>
-                <h3 className={s.offerTitle}>Use code <span className={s.codeChip}>NJC</span> and setup is free.</h3>
-                <p className={s.offerText}>
-                  Enter NJC on the form below and we waive the one-time setup fee. That&apos;s $299 off
-                  Solo or Crew. It doesn&apos;t change the monthly price. Company setup is part of your quote.
-                </p>
-                <p className={s.offerText}>
-                  Setup means we load your vendors, jobs and card data, so the checks know what
-                  &ldquo;right&rdquo; looks like on day one.
-                </p>
-              </Reveal>
             </div>
 
             <div className={s.usage}>

@@ -154,7 +154,7 @@ export function SignupForm() {
           {err('promo')
             ? <p id="promo-error" className={f.error}>{err('promo')}</p>
             : <p id="promo-hint" className={`${f.hint} ${promoOk ? f.hintOk : ''}`}>
-                {promoOk ? 'NJC applied: setup fee waived.' : 'Have NJC? Enter it to waive setup.'}
+                {promoOk ? 'NJC applied: setup fee waived.' : 'Have a promo code? Enter it here.'}
               </p>}
         </div>
       </div>
