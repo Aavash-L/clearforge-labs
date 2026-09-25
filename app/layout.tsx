@@ -23,68 +23,53 @@ export const viewport: Viewport = {
 }
 
 // ── SEO + Social metadata ─────────────────────────────────
+const DESCRIPTION =
+  'ClearForge Labs is a founder-led software company in New Jersey. We build our own software products, like Site Tally, and custom systems for businesses: internal tools, workflow automation, integrations and websites.'
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://clearforgelabs.com'),   // ← update to your real domain
+  metadataBase: new URL('https://clearforgelabs.com'),
 
   title: {
-    default: 'ClearForgeLabs — Modern Websites for Local Businesses',
-    template: '%s | ClearForgeLabs',
+    default: 'ClearForge Labs — Software products and custom systems',
+    template: '%s | ClearForge Labs',
   },
-  description:
-    'Fast, mobile-first websites with payment integration and booking built in. Delivered in 5–10 days. NJ-based, serving businesses nationwide. Free mock website included.',
+  description: DESCRIPTION,
   keywords: [
-    'web design NJ',
-    'website designer New Jersey',
-    'local business website',
-    'affordable website design',
-    'small business website',
-    'NJ web developer',
-    'restaurant website design',
-    'salon website design',
-    'contractor website',
-    'ClearForgeLabs',
-    'Aavash Lamichhane',
+    'ClearForge Labs',
+    'software company New Jersey',
+    'custom software NJ',
+    'internal tools',
+    'workflow automation',
+    'business integrations',
+    'web development NJ',
+    'Site Tally',
   ],
   authors: [{ name: 'Aavash Lamichhane', url: 'https://clearforgelabs.com' }],
-  creator: 'Aavash Lamichhane',
-  publisher: 'ClearForgeLabs',
+  creator: 'ClearForge Labs',
+  publisher: 'ClearForge Labs',
 
-  // Open Graph (Facebook, LinkedIn, iMessage previews)
+  // Open Graph (Facebook, LinkedIn, iMessage previews).
+  // The share image comes from app/(marketing)/opengraph-image.tsx.
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://clearforgelabs.com',
-    siteName: 'ClearForgeLabs',
-    title: 'ClearForgeLabs — Modern Websites That Actually Bring You Clients',
-    description:
-      'Fast, mobile-first websites with payment integration and booking built in. Free mock website. Delivered in 5–10 days.',
-    images: [
-      {
-        url: '/og1.png',   // ← add a 1200x630 image to /public/og-image.png
-        width: 1200,
-        height: 630,
-        alt: 'ClearForgeLabs — Modern Websites for Local Businesses',
-      },
-    ],
+    siteName: 'ClearForge Labs',
+    title: 'ClearForge Labs — Software products and custom systems',
+    description: 'We build practical software, connect business workflows, and create better digital experiences.',
   },
 
-  // Twitter / X card
   twitter: {
     card: 'summary_large_image',
-    title: 'ClearForgeLabs — Modern Websites That Actually Bring You Clients',
-    description: 'Fast, mobile-first websites. Free mock. Delivered in 5–10 days.',
-    images: ['/og1.png'],
+    title: 'ClearForge Labs — Software products and custom systems',
+    description: 'We build practical software, connect business workflows, and create better digital experiences.',
   },
 
-  // Favicon / icons
   icons: {
-    icon: [
-      { url: '/favicon.png', sizes: 'any' },
-    ],
-    apple: '/apple-touch-icon.png',
+    icon: [{ url: '/favicon.png', sizes: 'any' }],
+    apple: '/favicon.png',
   },
 
-  // Robots
   robots: {
     index: true,
     follow: true,
@@ -95,11 +80,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-
-  // Canonical
-  alternates: {
-    canonical: 'https://clearforgelabs.com',
-  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -109,27 +89,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Preconnect to font CDN for faster load */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Preconnect to Spline CDN */}
-        <link rel="preconnect" href="https://prod.spline.design" />
-        {/* Structured data — local business schema */}
+        {/* Structured data — organization */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               '@context': 'https://schema.org',
-              '@type': 'LocalBusiness',
-              name: 'ClearForgeLabs',
-              description: 'Fast, mobile-first websites for local businesses. NJ-based, serving businesses nationwide.',
+              '@type': 'Organization',
+              name: 'ClearForge Labs',
+              description: DESCRIPTION,
               url: 'https://clearforgelabs.com',
+              logo: 'https://clearforgelabs.com/favicon.png',
               founder: { '@type': 'Person', name: 'Aavash Lamichhane' },
-              address: {
-                '@type': 'PostalAddress',
-                addressRegion: 'NJ',
-                addressCountry: 'US',
-              },
-              areaServed: { '@type': 'Country', name: 'United States' },
-              priceRange: '$500–$2500',
-              serviceType: 'Web Design',
+              address: { '@type': 'PostalAddress', addressRegion: 'NJ', addressCountry: 'US' },
             }),
           }}
         />
