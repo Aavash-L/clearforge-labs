@@ -37,7 +37,7 @@ export default function TermsPage() {
           title: 'Site Tally examples',
           body: <>
             <p>The Site Tally demo and the documents on this site use fictional data. They show how the product works; they aren&apos;t real customer records.</p>
-            <p>Site Tally helps people review paperwork. It points things out for a person to check. It doesn&apos;t approve or send payments, and it doesn&apos;t guarantee that every error will be caught. QuickBooks integration is in development and not available yet.</p>
+            <p>Site Tally helps people review paperwork. It points things out for a person to check. It doesn&apos;t approve or send payments, and it doesn&apos;t guarantee that every error will be caught. Integrations with QuickBooks and other software depend on those services being available and on the access you give us.</p>
           </>,
         },
         {

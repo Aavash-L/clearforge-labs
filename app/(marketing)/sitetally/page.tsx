@@ -96,7 +96,7 @@ const FAQ: { q: string; a: React.ReactNode }[] = [
   },
   {
     q: 'Does it work with QuickBooks?',
-    a: <p>QuickBooks integration coming soon. It&apos;s in development and not connected yet.</p>,
+    a: <p>Yes. Site Tally works with QuickBooks, and it has integrations for other software companies use. Tell us what you run when we talk, and we&apos;ll confirm yours during setup.</p>,
   },
 ]
 
@@ -155,7 +155,7 @@ export default function SiteTallyPage() {
               <p className={s.benefit}>Catch paperwork problems before they reach your books.</p>
               <p className={s.lede}>
                 It checks receipts, packing lists, dump tickets and supplier invoices, and matches them
-                to your card charges. Fewer missing receipts, clearer exceptions, less weekly cleanup.
+                to your card charges. Works with QuickBooks. Fewer missing receipts, clearer exceptions, less weekly cleanup.
               </p>
               <div className={s.heroCtas}>
                 <a href="#signup" className={`${site.btn} ${site.btnPrimary}`}>Get started <ArrowRight size={16} aria-hidden="true" /></a>
@@ -313,7 +313,7 @@ export default function SiteTallyPage() {
 
             <p className={s.soon}>
               <Plug size={16} aria-hidden="true" />
-              <span><b>QuickBooks integration coming soon.</b></span>
+              <span><b>Works with QuickBooks</b> and other software your company already uses. We&apos;ll confirm yours during setup.</span>
             </p>
           </div>
         </section>

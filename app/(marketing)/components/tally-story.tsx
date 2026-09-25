@@ -93,7 +93,7 @@ export function TallyStory() {
             <h2 id="products-title" className={h.productTitle}>Site Tally</h2>
             <p className={h.productLead}>
               Our own product for contractors. It checks receipts, dump tickets, packing lists and
-              supplier invoices, then puts problems in front of a person before they reach the books.
+              supplier invoices, then puts problems in front of a person before they reach the books. Works with QuickBooks and other software you already use.
             </p>
 
             <ol className={h.steps}>
