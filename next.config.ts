@@ -14,11 +14,22 @@ const nextConfig: NextConfig = {
       {
         source: '/(.*)',
         headers: [
-          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'Content-Security-Policy', value: "frame-ancestors 'self'" },
           { key: 'X-Content-Type-Options', value: 'nosniff' },
           { key: 'Referrer-Policy', value: 'origin-when-cross-origin' },
         ],
       },
+      // Allow the owner's portfolio to preview public marketing pages.
+      // Other routes retain the same-origin-only policy above.
+      ...['/', '/sitetally', '/privacy', '/terms'].map((source) => ({
+        source,
+        headers: [
+          {
+            key: 'Content-Security-Policy',
+            value: "frame-ancestors 'self' https://aavash-lamichhane-portfolio.lami-venture-1521.chatgpt.site",
+          },
+        ],
+      })),
       {
         source: '/_next/static/(.*)',
         headers: [
