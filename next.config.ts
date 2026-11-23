@@ -26,7 +26,7 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: 'Content-Security-Policy',
-            value: "frame-ancestors 'self' https://aavash-lamichhane-portfolio.lami-venture-1521.chatgpt.site",
+            value: "frame-ancestors 'self' https://aavash-lamichhane-portfolio.lami-venture-1521.chatgpt.site https://www.aavashlamichhane.com https://aavashlamichhane.com",
           },
         ],
       })),
